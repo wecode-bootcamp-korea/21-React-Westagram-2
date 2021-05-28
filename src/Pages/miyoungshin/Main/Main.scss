@@ -1,0 +1,420 @@
+@import '../styles/mixins';
+@import '../Styles/variables';
+@import '../../../Style/Common.scss';
+@import '../../../Style/Reset.css';
+/*
+.MainMi nav {
+  position: fixed;
+  top: 0;
+  @include flexSet;
+  width: 100%;
+  height: 54px;
+  padding: 0 15px;
+  background-color: $white;
+  border-bottom: $gray-border;
+  z-index: 1;
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    .logo {
+      @include flexSet(flex-start);
+      font: {
+        size: 25px;
+        family: 'Lobster', cursive;
+        weight: 100;
+      }
+    }
+    .search {
+      display: none;
+    }
+    .navIcons {
+      width: auto;
+      img {
+        width: 22px;
+        height: 22px;
+        margin: 0 10px;
+      }
+      .myProfile-img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+*/
+.mainSection {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  width: 100%;
+  background-color: $lightgray;
+  article {
+    .stories {
+      @include flexSet(space-between);
+      width: 100%;
+      height: 110px;
+      overflow: hidden;
+      .story {
+        @include flexSet(center, center, column);
+        width: 100%;
+      }
+      .storyProfile {
+        width: 60px;
+        height: 60px;
+        border: 3px solid white;
+        border-radius: 50%;
+      }
+      .storyBg {
+        @include flexSet;
+        width: 66px;
+        height: 66px;
+        margin-bottom: 5px;
+        border-radius: 50%;
+        background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045);
+      }
+    }
+
+    .feeds {
+      width: 100vw;
+      border-top: $gray-border;
+      .feedHead {
+        @include flexSet(space-between);
+        height: 60px;
+        width: 100%;
+        padding: 20px;
+        border-bottom: $gray-border;
+        background-color: #ffffff;
+        .account {
+          @include flexSet(space-between);
+          div {
+            padding-left: 10px;
+          }
+          img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+          }
+        }
+        .accountMore {
+          font: {
+            size: 20px;
+            weight: 600;
+          }
+          text-align: right;
+          cursor: pointer;
+        }
+      }
+      .feedBody {
+        img {
+          max-width: 100%;
+        }
+        .feedReaction {
+          padding: 15px;
+          margin-bottom: 10px;
+          .floatLeft {
+            @include main-feed-react-icon;
+            float: left;
+          }
+          .floatRight {
+            @include main-feed-react-icon;
+            float: right;
+          }
+        }
+      }
+
+      .feedInfo {
+        padding: 0 20px;
+        .feedLikes {
+          clear: both;
+          padding: 10px 0;
+          font-weight: bolder;
+        }
+        .feedContents {
+          padding: 5px 0;
+          .myAccountId {
+            font-weight: bolder;
+          }
+        }
+        .feedCommentsList {
+          padding: 5px 0;
+          ul {
+            padding-left: 0;
+            list-style: none;
+            li {
+              @include flexSet(space-between);
+              .commentId {
+                font-weight: 700;
+              }
+              .commentText {
+                flex: 2;
+                padding-left: 5px;
+              }
+              button {
+                color: rgb(145, 145, 145);
+                background-color: #ffffff;
+                cursor: pointer;
+              }
+              .commentLikesButton {
+                width: 12px;
+                height: 12px;
+                margin-left: 10px;
+                background-color: #ffffff;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        .feedDate {
+          margin: 15px 0;
+          color: rgb(145, 145, 145);
+          font-size: 11px;
+        }
+      }
+
+      .feedComment {
+        display: none;
+      }
+    }
+  }
+
+  aside {
+    display: none;
+  }
+}
+
+@include main-mobile {
+  /*
+  .MainMi {
+    nav div {
+      @include flexSet(space-between);
+      .search {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        position: relative;
+        width: 215px;
+        height: 28px;
+        border: $gray-border;
+        border-radius: 3px;
+        background-color: $lightgray;
+        font-size: 15px;
+        label {
+          @include flexSet;
+          position: absolute;
+          left: 0;
+          width: 100%;
+          cursor: text;
+          opacity: 0.4;
+          span {
+            margin-left: 3px;
+          }
+        }
+        input {
+          width: 85%;
+          background-color: $lightgray;
+        }
+        button {
+          display: none;
+        }
+      }
+    }
+  }
+*/
+  .feedPicture {
+    width: 600px;
+  }
+
+  /*
+  .searchLabelFocus {
+    position: absolute;
+    left: 3px;
+    opacity: 0.4;
+    z-index: 1;
+  }
+
+  .searchFocus {
+    position: absolute;
+    top: 3px;
+    left: 20px;
+    width: 75%;
+    border: 1px solid black;
+  }
+
+  .searchDeleteButton {
+    display: none;
+  }
+
+  .searchDeleteButtonOn {
+    display: inline;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    color: rgb(145, 145, 145);
+    background-color: $lightgray;
+  }
+*/
+}
+
+@include main-small-tablet {
+  .MainMi {
+    /*
+    nav div {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+    }
+    */
+    section {
+      display: flex;
+      justify-content: center;
+      article {
+        margin: 15px;
+      }
+      .stories {
+        height: 110px;
+        margin-bottom: 15px;
+        border: $gray-border;
+        background-color: #ffffff;
+      }
+      .feeds {
+        @include flexSet(center, center, column);
+        width: 600px;
+        border: $gray-border;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+
+@include main-large-tablet {
+  .mainSection article .feeds {
+    .feedBody {
+      .feedComment {
+        display: flex;
+        align-items: center;
+        padding: 20px 20px;
+        border-top: $gray-border;
+        img {
+          width: 22px;
+          margin-right: 15px;
+        }
+        input {
+          width: 90%;
+          background-color: #ffffff;
+          font-size: 15px;
+        }
+        button {
+          background-color: #ffffff;
+          color: $lightblue;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  /*
+  .postButtonOn {
+    color: #4d95f6;
+    cursor: pointer;
+  }
+  */
+}
+
+@include main-pc {
+  /*
+  .MainMi {
+    nav div {
+      width: 920px;
+    }
+  }
+*/
+  section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .mainSection {
+    aside {
+      margin: 15px;
+      display: inline-block;
+      width: 295px;
+      .myAccount {
+        @include flexSet(space-between);
+        margin: 15px 0;
+        img {
+          width: 56px;
+          border-radius: 50%;
+          margin-right: 20px;
+        }
+        div {
+          font-weight: 700;
+          flex-grow: 1;
+          text-align: left;
+        }
+        button {
+          color: $blue;
+          background-color: $lightgray;
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
+      .suggestions {
+        display: flex;
+        flex-direction: column;
+        .suggestionTitle {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 15px;
+          color: rgb(145, 145, 145);
+          font-size: 16px;
+          font-weight: 700;
+          button {
+            color: black;
+            background-color: $lightgray;
+            font-weight: 700;
+            cursor: pointer;
+          }
+        }
+        .suggestedLists {
+          display: flex;
+          flex-direction: column;
+          margin: 15px 0;
+          .suggestedUser {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            img {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              margin-right: 15px;
+            }
+            div {
+              flex-grow: 1;
+              .suggestedId {
+                font: {
+                  size: 13px;
+                  weight: 700;
+                }
+              }
+              .suggestedText {
+                color: rgb(145, 145, 145);
+                font-size: 12px;
+              }
+            }
+            button {
+              color: $blue;
+              background-color: $lightgray;
+              font-weight: 700;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .myAccountId {
+    width: 170px;
+    font-weight: bolder;
+  }
+}

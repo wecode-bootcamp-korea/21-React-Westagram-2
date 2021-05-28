@@ -1,0 +1,219 @@
+@import '../Styles/mixins';
+@import '../Styles/variables';
+@import '../../../Style/Common.scss';
+@import '../../../Style/Reset.css';
+
+.loginMi {
+  @include flexSet;
+  height: 100vh;
+  margin: 0;
+  background-color: $lightgray;
+  font-size: 15px;
+  section article {
+    margin: 0;
+  }
+}
+
+.mainImages {
+  position: relative;
+  .thumbnailImage {
+    position: absolute;
+    top: 100px;
+    left: 151px;
+  }
+}
+
+.contents {
+  @include flexSet;
+  flex-direction: column;
+  text-align: center;
+  .logInBox {
+    width: 350px;
+    height: 380px;
+    margin-bottom: 10px;
+    padding: 20px 45px;
+    border: $gray-border;
+    background-color: $white;
+    h1 {
+      margin: 20px 0;
+      font: {
+        family: $logo-font, cursive;
+        weight: 100;
+        size: 3em;
+      }
+    }
+    .idInput,
+    .pwInput {
+      position: relative;
+      width: 258px;
+      height: 36px;
+      margin: 5px auto;
+      background-color: $lightgray;
+      input {
+        // @include input-common;
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        width: 95%;
+      }
+      label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 258px;
+        height: 35px;
+        padding: 8px 0 0 5px;
+        border: $gray-border;
+        border-radius: 3px;
+        color: $darkgray;
+        background-color: $lightgray;
+        font-size: 1em;
+        text-align: left;
+        cursor: text;
+      }
+    }
+    .pwInput button {
+      display: none;
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      color: black;
+      background-color: $lightgray;
+      font-weight: 700;
+      cursor: pointer;
+      &.toggleButtonOn {
+        display: inline-block;
+      }
+    }
+
+    .logInButton {
+      width: 258px;
+      height: 30px;
+      margin: 10px 0;
+      border-radius: 3px;
+      color: white;
+      background-color: $lightblue;
+      font-size: 1.2em;
+      &.logInButtonOn {
+        background-color: $blue;
+        cursor: pointer;
+      }
+    }
+
+    .or {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+      .orLine {
+        width: 45%;
+        border-bottom: $gray-border;
+      }
+      .orText {
+        margin: 0 15px;
+        color: rgb(168, 168, 168);
+        font-weight: 800;
+      }
+      .orLine {
+        width: 45%;
+        border-bottom: $gray-border;
+      }
+    }
+
+    .logInFacebook a {
+      @include flexSet;
+      text-decoration: none;
+      margin: 15px 0;
+      img {
+        width: 18px;
+        padding-bottom: 4px;
+      }
+      p {
+        margin-left: 7px;
+        color: #385185;
+        font: {
+          size: 1.2em;
+          weight: bolder;
+        }
+      }
+    }
+
+    .forgotPassword a {
+      margin: 10px 0px;
+      color: rgb(27, 55, 107);
+      text-decoration: none;
+    }
+  }
+
+  .signUpBox {
+    width: 350px;
+    height: 63px;
+    padding-top: 20px;
+    background-color: $white;
+    border: $gray-border;
+    font-size: 1em;
+    text-align: center;
+    p a {
+      color: $blue;
+      font-weight: bolder;
+      text-decoration: none;
+    }
+  }
+
+  .getTheApp p {
+    margin: 20px 0;
+  }
+
+  article .appDownloadButton {
+    width: 134px;
+    padding: 0 5px;
+  }
+}
+
+@include login-mobile {
+  .mainImages {
+    display: none;
+  }
+}
+
+/*
+
+.filledLabel {
+  animation-name: inputLabelChange;
+  animation-duration: 300ms;
+  animation-fill-mode: both;
+}
+
+@keyframes inputLabelChange {
+  0% {
+    padding-top: 8px;
+    font-size: 1em;
+  }
+  100% {
+    padding-top: 3px;
+    font-size: 0.8em;
+  }
+}
+
+.filledInput {
+  animation-name: inputChange;
+  animation-duration: 100ms;
+  animation-fill-mode: both;
+}
+
+@keyframes inputChange {
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: 15px;
+    font-size: 0.8em;
+  }
+}
+
+
+#idInput:focus ~ .placeholder,
+#passwordInput:focus ~ .placeholder {
+  border: 1px solid rgb(131, 131, 131);
+}
+
+*/
