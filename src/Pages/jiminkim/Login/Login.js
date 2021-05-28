@@ -6,6 +6,26 @@ import { Link, withRouter } from 'react-router-dom';
 
 //function Login() {
 class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      idVal: '',
+      pwVal: '',
+    };
+  }
+
+  handleIdInput = e => {
+    this.setState({
+      idVal: e.target.value,
+    });
+  };
+
+  handlePwInput = e => {
+    this.setState({
+      pwVal: e.target.value,
+    });
+  };
+
   goToMain = () => {
     this.props.history.push('/jiminkim/main');
   };
@@ -18,8 +38,14 @@ class Login extends React.Component {
             type="text"
             id="txtLoginId"
             placeholder="전화번호, 사용자 이름 또는 이메일"
+            onChange={this.handleIdInput}
           />
-          <input type="password" id="txtLoginPw" placeholder="비밀번호" />
+          <input
+            type="password"
+            id="txtLoginPw"
+            placeholder="비밀번호"
+            onChange={this.handlePwInput}
+          />
           <button id="buttonLogin" onClick={this.goToMain}>
             로그인
           </button>
