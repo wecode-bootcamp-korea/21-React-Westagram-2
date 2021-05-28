@@ -9,27 +9,36 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      idVal: '',
-      pwVal: '',
+      loginId: '',
+      loginPw: '',
+      isPossibleLogin: false,
     };
   }
 
-  handleIdInput = e => {
-    this.setState({
-      idVal: e.target.value,
-    });
+  handleInput = e => {
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      // setState가 비동기처리가 되기 때문에, state변경 후 아래 function 실행하도록 로직분리
+      function () {
+        const { loginId, loginPw } = this.state;
+
+        this.setState({
+          isPossibleLogin:
+            loginId.includes('@') && loginPw.length >= 5 ? true : false,
+        });
+      }
+    );
   };
 
-  handlePwInput = e => {
-    this.setState({
-      pwVal: e.target.value,
-    });
-  };
-
-  goToMain = () => {
+  handleLogin = e => {
+    if (!this.state.isPossibleLogin) return false;
     this.props.history.push('/jiminkim/main');
   };
+
   render() {
+    const { isPossibleLogin, loginMsg } = this.state;
     return (
       <div className="login">
         <main className="login-box">
@@ -37,18 +46,25 @@ class Login extends React.Component {
           <input
             type="text"
             id="txtLoginId"
+            name="loginId"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            onChange={this.handleIdInput}
+            onChange={this.handleInput}
           />
           <input
             type="password"
             id="txtLoginPw"
+            name="loginPw"
             placeholder="비밀번호"
-            onChange={this.handlePwInput}
+            onChange={this.handleInput}
           />
-          <button id="buttonLogin" onClick={this.goToMain}>
+          <button
+            id="buttonLogin"
+            onClick={this.handleLogin}
+            className={isPossibleLogin ? '' : 'inactive'}
+          >
             로그인
           </button>
+          <span>{loginMsg}</span>
           <Link className="find-passwd-str" to="/main">
             비밀번호를 잊으셨나요?
           </Link>
