@@ -1,9 +1,9 @@
 import React from 'react';
 
-class Login extends React.Component {
+class LoginMi extends React.Component {
   render() {
     return <div></div>;
   }
 }
 
-export default Login;
+export default LoginMi;

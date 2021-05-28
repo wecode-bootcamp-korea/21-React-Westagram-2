@@ -16,14 +16,14 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route export path="/gunwookim/login" component={LoginGun} />
-          <Route export path="/jiminkim/login" component={LoginMin} />
-          <Route export path="/miyoungshin/login" component={LoginMi} />
-          <Route export path="/yoonseonghwang/login" component={LoginYoon} />
-          <Route export path="/gunwookim/main" component={MainGun} />
-          <Route export path="/jiminkim/main" component={MainMin} />
-          <Route export path="/miyoungshin/main" component={MainMi} />
-          <Route export path="/yoonseonghwang/main" component={MainYoon} />
+          <Route exact path="/gunwookim/login" component={LoginGun} />
+          <Route exact path="/jiminkim/login" component={LoginMin} />
+          <Route exact path="/miyoungshin/login" component={LoginMi} />
+          <Route exact path="/yoonseonghwang/login" component={LoginYoon} />
+          <Route exact path="/gunwookim/main" component={MainGun} />
+          <Route exact path="/jiminkim/main" component={MainMin} />
+          <Route exact path="/miyoungshin/main" component={MainMi} />
+          <Route exact path="/yoonseonghwang/main" component={MainYoon} />
         </Switch>
       </Router>
     );
