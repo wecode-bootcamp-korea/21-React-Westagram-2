@@ -1,0 +1,214 @@
+.mainPage1 {
+  background-color: #fafafa;
+  .junk_line {
+    height: 22px;
+    margin: 0 10px;
+    border-left: 1px solid #262626;
+  }
+
+  main {
+    width: 960px;
+    margin: 0 auto;
+    padding-top: 94px;
+    padding-bottom: 40px;
+
+    .feeds {
+      width: 614px;
+      margin-right: 34px;
+      display: inline-block;
+    }
+
+    .feed {
+      background-color: #fff;
+      border-radius: 3px;
+      border: 1px solid #dbdbdb;
+    }
+    .feed {
+      margin-bottom: 60px;
+    }
+  }
+
+  /* article */
+
+  .post_author {
+    height: 60px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+
+  .img_profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  .main_image img {
+    width: 612px;
+  }
+
+  .main_id {
+    margin-left: 14px;
+  }
+
+  .main_right {
+    border-radius: 50%;
+  }
+
+  /* contents */
+
+  .contents img {
+    width: 612px;
+    height: 612px;
+  }
+
+  .active_container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .comunicate_bar {
+    display: flex;
+    width: 100%;
+  }
+
+  .comunicate_bar img {
+    width: 22px;
+  }
+
+  .c_bar_left {
+    display: flex;
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+
+  .c_bar_right {
+    margin-left: 490px;
+  }
+
+  /* like tab */
+
+  .counting_box {
+    padding-top: 10px;
+    margin-left: 13px;
+    font-size: 13px;
+  }
+
+  .comunicate_bar button {
+    padding: 2px;
+    border: none;
+    background-color: white;
+  }
+
+  /* comment input */
+  .input_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .input_comment {
+    border: none;
+    width: 550px;
+    height: 18px;
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+
+  .input_comment:focus {
+    outline: none;
+  }
+
+  .comment_button {
+    padding-bottom: 10px;
+    border: none;
+    background-color: white;
+    color: rgba(192, 223, 253, 1);
+  }
+  // 추천탭
+  .rec_container {
+    width: 310px;
+    padding: 14px 16px;
+    display: inline-block;
+    position: fixed;
+    top: 94px;
+
+    .recommend_list li {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 0;
+    }
+    .menu_title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+
+      .sub_title {
+        font-size: 14px;
+        color: #8e8e8e;
+      }
+      .more {
+        font-size: 12px;
+        font-weight: 600;
+        color: #262626;
+      }
+    }
+    .recommend_profile {
+      display: flex;
+      font-size: 13px;
+    }
+    .follow {
+      padding-top: 7px;
+      color: #0095f6;
+      font-weight: 600;
+      font-size: 12px;
+    }
+  }
+
+  .profile_text {
+    display: inline-block;
+    margin: 0 0 10px 8px;
+
+    span {
+      display: block;
+    }
+
+    span.userID {
+      margin-bottom: 2px;
+    }
+  }
+  .story {
+    display: flex;
+    flex-direction: row;
+    .gradation {
+      position: relative;
+      border-radius: 50%;
+      border: 2px solid;
+      width: 60px;
+      height: 60px;
+      .storyBox {
+        width: 57px;
+        height: 57px;
+        // border-radius: 50%;
+        // border: 2px solid red;
+        img {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 50px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+/* main */
