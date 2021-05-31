@@ -5,7 +5,7 @@ function Comment(props) {
 
   return (
     <li className="Comment">
-      <div className="Left">{comment}</div>
+      <div className="Left">{comment.content}</div>
       <div className="Right">
         <button>X</button>
         <button>❤</button>

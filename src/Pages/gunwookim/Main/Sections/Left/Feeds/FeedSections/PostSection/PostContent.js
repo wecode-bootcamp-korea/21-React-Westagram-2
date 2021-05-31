@@ -19,8 +19,8 @@ class PostContent extends React.Component {
           <div>여기는 내용</div>
         </div>
         <ul>
-          {commentList.map((comment, idx) => (
-            <Comment key={idx} comment={comment} />
+          {commentList.map(comment => (
+            <Comment key={comment.id} comment={comment} />
           ))}
         </ul>
       </div>
