@@ -1,0 +1,22 @@
+@import '../../../../Style/Common.scss';
+
+.Sections {
+  @include flexSet(center, center);
+  width: 100%;
+  padding-top: 50px;
+}
+
+.LeftSection {
+  @include flexSet(center, center, column);
+
+  margin: 20px;
+}
+
+.RightSection {
+  width: 300px;
+  @include flexSet(center, center, column);
+
+  div {
+    @include flexSet(flex-start, flex-start);
+  }
+}

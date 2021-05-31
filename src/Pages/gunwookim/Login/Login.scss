@@ -1,6 +1,60 @@
 @import '../../../Style/Common.scss';
 
-h1 {
-  color: $blue;
-  font-family: $logo-font;
+.Login {
+  @include flexSet(center, center);
+  width: 100%;
+  height: 100vh;
+
+  main {
+    @include flexSet(center, center, column);
+    border: $gray-border;
+    width: 350px;
+    height: 500px;
+    text-align: center;
+
+    div {
+      @include flexSet(center, center, column);
+      width: 100%;
+      height: 150px;
+    }
+
+    h1 {
+      font-family: $logo-font;
+      font-size: 40px;
+    }
+
+    form {
+      @include flexSet(center, center, column);
+      width: 80%;
+
+      input {
+        width: 100%;
+        height: 35px;
+        margin: 5px;
+        padding: 5px;
+        border: $gray-border;
+        border-radius: 5px;
+      }
+
+      button {
+        width: 100%;
+        height: 30px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: $blue;
+        cursor: pointer;
+
+        &:disabled {
+          background-color: $lightblue;
+          cursor: default;
+        }
+      }
+    }
+
+    a {
+      cursor: pointer;
+      color: $blue;
+      font-size: 13px;
+    }
+  }
 }

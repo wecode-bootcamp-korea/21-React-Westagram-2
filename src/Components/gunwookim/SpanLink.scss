@@ -1,0 +1,16 @@
+@import '../../Style/Common.scss';
+
+.SpanLink {
+  @include flexSet(flex-start, center);
+  width: 90%;
+  height: 100%;
+  margin-left: 12px;
+
+  span {
+    color: black;
+    font-size: 14px;
+    width: 200px;
+
+    cursor: pointer;
+  }
+}

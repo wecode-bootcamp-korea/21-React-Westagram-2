@@ -1,0 +1,103 @@
+@import '../../../../../../../../Style/Common.scss';
+
+.PostImg {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
+.PostSubList {
+  @include flexSet(space-between, center);
+
+  width: 100%;
+
+  .PostSubLeft {
+    @include flexSet(center, center);
+
+    div {
+      width: 30px;
+    }
+  }
+
+  .PostSubRight {
+    width: 30px;
+  }
+}
+
+.PostContent {
+  @include flexSet(flex-start, center, column);
+  width: 100%;
+
+  ul {
+    width: 100%;
+    position: relative;
+  }
+
+  li {
+    @include flexSet(flex-start, center);
+
+    width: 100%;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  div {
+    @include flexSet(flex-start, center, row);
+    width: 100%;
+  }
+
+  .fixed {
+    width: 20px;
+    height: 100%;
+  }
+}
+
+.Comment {
+  @include flexSet(flex-start, center);
+  margin: 1px 0;
+
+  .Left {
+    width: 90%;
+  }
+  .Right {
+    @include flexSet(flex-end, center);
+    width: 10%;
+
+    button {
+      background-color: white;
+      cursor: pointer;
+
+      margin-left: 3px;
+    }
+  }
+}
+
+.PostComment {
+  @include flexSet(space-between, center);
+
+  width: 100%;
+  height: 50px;
+
+  .fixed {
+    width: 50px;
+  }
+  div {
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+
+    button {
+      background-color: white;
+      color: $blue;
+      cursor: pointer;
+
+      &:disabled {
+        color: $lightblue;
+        cursor: default;
+      }
+    }
+  }
+}

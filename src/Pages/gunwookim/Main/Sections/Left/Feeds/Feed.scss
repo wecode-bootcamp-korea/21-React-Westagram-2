@@ -1,0 +1,41 @@
+@import '../../../../../../Style/Common.scss';
+
+.Feeds {
+  width: 450px;
+  border: $gray-border;
+  margin-top: 20px;
+}
+
+$size-default: 30px;
+
+// 헤더
+.FeedHead {
+  @include flexSet(flex-start, center);
+
+  width: 100%;
+  height: $size-default + 20px;
+
+  .ImgLink {
+    width: $size-default;
+    height: $size-default;
+  }
+}
+
+.UserSpanLink {
+  @include flexSet(flex-start, center);
+  width: 90%;
+  height: 100%;
+  margin-left: 12px;
+
+  span {
+    color: black;
+    font-size: 14px;
+    width: 200px;
+
+    cursor: pointer;
+  }
+}
+
+.FeedContainer {
+  @include flexSet(center, center, column);
+}
