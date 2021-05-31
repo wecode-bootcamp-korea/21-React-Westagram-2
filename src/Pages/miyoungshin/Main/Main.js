@@ -3,50 +3,17 @@ import CommonNav from '../../../Components/Nav/Nav';
 import './Main.scss';
 
 class MainMi extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isPostActive: false,
+    };
+  }
+
   render() {
     return (
       <div className="MainMi">
         <CommonNav />
-        {/*
-        <nav>
-          <div>
-            <h1 className="logo">Westagram</h1>
-            <div className="search">
-              <label className="searchLabel">
-                <i className="fas fa-search"></i>
-                <span className="searchLabelText">Search</span>
-              </label>
-              <input className="searchInput" type="text" />
-              <button className="searchDeleteButton">
-                <i className="fas fa-times-circle"></i>
-              </button>
-            </div>
-            <div className="navIcons">
-              <img
-                src="/images/miyoungshin/main/icon/home_black.png"
-                alt="home icon"
-              />
-              <img
-                src="/images/miyoungshin/main/icon/send.png"
-                alt="send icon"
-              />
-              <img
-                src="/images/miyoungshin/main/icon/compass.png"
-                alt="compass icon"
-              />
-              <img
-                src="/images/miyoungshin/main/icon/heart.png"
-                alt="heart icon"
-              />
-              <img
-                className="myProfile-img"
-                src="/images/miyoungshin/main/profile/my-profile.jpeg"
-                alt="my profile"
-              />
-            </div>
-          </div>
-        </nav>
-        */}
         <section className="mainSection">
           <article>
             <div className="stories">
@@ -142,11 +109,8 @@ class MainMi extends React.Component {
           </article>
           <aside>
             <div className="myAccount">
-              <img
-                src="/images/miyoungshin/main/profile/my-profile.jpeg"
-                alt="my profile"
-              />
-              <div className="myAccount-id">my_sshin</div>
+              <img src="/images/common/wecode-profile.jpeg" alt="my profile" />
+              <div className="myAccount-id">wecode_</div>
               <button className="sideButton">Swicth</button>
             </div>
             <div className="suggestions">

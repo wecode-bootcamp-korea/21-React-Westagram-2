@@ -8,7 +8,6 @@
   height: 100vh;
   margin: 0;
   background-color: $lightgray;
-  font-size: 15px;
   section article {
     margin: 0;
   }
@@ -35,11 +34,14 @@
     border: $gray-border;
     background-color: $white;
     h1 {
-      margin: 20px 0;
+      margin: {
+        top: 15px;
+        bottom: 35px;
+      }
       font: {
         family: $logo-font, cursive;
-        weight: 100;
-        size: 3em;
+        weight: normal;
+        size: 35px;
       }
     }
     .idInput,
@@ -48,28 +50,30 @@
       width: 258px;
       height: 36px;
       margin: 5px auto;
+      border: $gray-border;
+      border-radius: 3px;
       background-color: $lightgray;
       input {
-        // @include input-common;
-        position: absolute;
-        top: 8px;
-        left: 5px;
-        width: 95%;
-      }
-      label {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 258px;
-        height: 35px;
-        padding: 8px 0 0 5px;
-        border: $gray-border;
-        border-radius: 3px;
-        color: $darkgray;
+        left: 3px;
+        height: 100%;
+        width: 95%;
         background-color: $lightgray;
-        font-size: 1em;
-        text-align: left;
         cursor: text;
+        &::placeholder {
+          color: $darkgray;
+          font-size: 11px;
+        }
+      }
+      div {
+        display: none;
+        position: absolute;
+        top: 25px;
+        left: 5px;
+        color: $darkgray;
+        background-color: none;
+        font-size: 11px;
       }
     }
     .pwInput button {
@@ -85,6 +89,13 @@
         display: inline-block;
       }
     }
+    .inputFocusOn {
+      border: 1px solid $darkgray;
+    }
+
+    .inputFocusOff {
+      border: $gray-border;
+    }
 
     .logInButton {
       width: 258px;
@@ -93,11 +104,15 @@
       border-radius: 3px;
       color: white;
       background-color: $lightblue;
-      font-size: 1.2em;
-      &.logInButtonOn {
-        background-color: $blue;
-        cursor: pointer;
-      }
+      font-size: 13px;
+    }
+    .logInButtonOn {
+      background-color: $blue;
+      cursor: pointer;
+    }
+    .logInButtonOff {
+      background-color: $lightblue;
+      cursor: pointer;
     }
 
     .or {
@@ -111,7 +126,10 @@
       .orText {
         margin: 0 15px;
         color: rgb(168, 168, 168);
-        font-weight: 800;
+        font: {
+          size: 12px;
+          weight: 800;
+        }
       }
       .orLine {
         width: 45%;
@@ -123,16 +141,17 @@
       @include flexSet;
       text-decoration: none;
       margin: 15px 0;
+      cursor: pointer;
       img {
         width: 18px;
         padding-bottom: 4px;
       }
       p {
         margin-left: 7px;
-        color: #385185;
+        color: rgb(27, 55, 107);
         font: {
-          size: 1.2em;
-          weight: bolder;
+          size: 12px;
+          weight: 600;
         }
       }
     }
@@ -140,7 +159,9 @@
     .forgotPassword a {
       margin: 10px 0px;
       color: rgb(27, 55, 107);
+      font-size: 11px;
       text-decoration: none;
+      cursor: pointer;
     }
   }
 
@@ -150,22 +171,28 @@
     padding-top: 20px;
     background-color: $white;
     border: $gray-border;
-    font-size: 1em;
     text-align: center;
-    p a {
-      color: $blue;
-      font-weight: bolder;
-      text-decoration: none;
+    p {
+      font-size: 13px;
+      a {
+        color: $blue;
+        font-size: 13px;
+        font-weight: bolder;
+        text-decoration: none;
+        cursor: pointer;
+      }
     }
   }
 
   .getTheApp p {
     margin: 20px 0;
+    font-size: 13px;
   }
 
   article .appDownloadButton {
     width: 134px;
     padding: 0 5px;
+    cursor: pointer;
   }
 }
 
@@ -176,8 +203,7 @@
 }
 
 /*
-
-.filledLabel {
+.filledInput {
   animation-name: inputLabelChange;
   animation-duration: 300ms;
   animation-fill-mode: both;
@@ -209,11 +235,4 @@
     font-size: 0.8em;
   }
 }
-
-
-#idInput:focus ~ .placeholder,
-#passwordInput:focus ~ .placeholder {
-  border: 1px solid rgb(131, 131, 131);
-}
-
 */

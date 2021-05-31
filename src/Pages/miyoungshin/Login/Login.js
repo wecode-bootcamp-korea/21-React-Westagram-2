@@ -2,6 +2,46 @@ import React from 'react';
 import './Login.scss';
 
 class LoginMi extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      id: '',
+      password: '',
+      isIdFocus: false,
+      isPwFocus: false,
+      isLoginActive: false,
+    };
+  }
+
+  inputChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+    console.log(e.target.value);
+  };
+
+  idFocusChange = () => {
+    this.setState({
+      isIdFocus: !this.state.isIdFocus,
+    });
+  };
+
+  pwFocusChange = () => {
+    const { isPwFocus } = this.state;
+    this.setState({
+      isPwFocus: !isPwFocus,
+    });
+  };
+
+  checkValid = () => {
+    const valid =
+      this.state.id.includes('@') && this.state.password.length >= 5;
+
+    valid
+      ? this.setState({ isLoginActive: true })
+      : this.setState({ isLoginActive: false });
+  };
+
   render() {
     return (
       <div className="loginMi">
@@ -21,16 +61,52 @@ class LoginMi extends React.Component {
         <section className="contents">
           <article className="logInBox">
             <h1>Westagram</h1>
-            <div className="idInput">
-              <input type="text" required />
-              <label>Phone number, username, or email</label>
+            <div
+              className={
+                'idInput ' +
+                (this.state.isIdFocus ? 'inputFocusOn' : 'inputFocusOff')
+              }
+            >
+              <input
+                type="text"
+                placeholder="Phone number, username, or email"
+                name="id"
+                value={this.state.id}
+                onFocus={this.idFocusChange}
+                onBlur={this.idFocusChange}
+                onChange={this.inputChange}
+                onKeyUp={this.checkValid}
+              />
+              <div onClikck={this.inputFocus}>
+                Phone number, username, or email
+              </div>
             </div>
-            <div className="pwInput">
-              <input type="password" />
-              <label>Password</label>
+            <div
+              className={
+                'pwInput ' +
+                (this.state.isPwFocus ? 'inputFocusOn' : 'inputFocusOff')
+              }
+            >
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={this.state.password}
+                onFocus={this.pwFocusChange}
+                onBlur={this.pwFocusChange}
+                onChange={this.inputChange}
+                onKeyUp={this.checkValid}
+              />
+              <div>Password</div>
               <button>Show</button>
             </div>
-            <button className="logInButton" disabled="disabled">
+            <button
+              className={
+                'logInButton ' +
+                (this.state.isLoginActive ? 'logInButtonOn' : 'logInButtonOff')
+              }
+              disabled={this.state.isLoginActive}
+            >
               Log in
             </button>
             <div className="or">
