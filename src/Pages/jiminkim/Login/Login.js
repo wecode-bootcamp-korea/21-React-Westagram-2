@@ -4,7 +4,6 @@ import '../Styles/common.scss';
 
 import { Link, withRouter } from 'react-router-dom';
 
-//function Login() {
 class Login extends React.Component {
   constructor() {
     super();
@@ -16,9 +15,10 @@ class Login extends React.Component {
   }
 
   handleInput = e => {
+    const { name, value } = e.target;
     this.setState(
       {
-        [e.target.name]: e.target.value,
+        [name]: value,
       },
       // setState가 비동기처리가 되기 때문에, state변경 후 아래 function 실행하도록 로직분리
       function () {
@@ -38,7 +38,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { isPossibleLogin, loginMsg } = this.state;
+    const { isPossibleLogin } = this.state;
     return (
       <div className="login">
         <main className="login-box">
@@ -64,7 +64,6 @@ class Login extends React.Component {
           >
             로그인
           </button>
-          <span>{loginMsg}</span>
           <Link className="find-passwd-str" to="/main">
             비밀번호를 잊으셨나요?
           </Link>

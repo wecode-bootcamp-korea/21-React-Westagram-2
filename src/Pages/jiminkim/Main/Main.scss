@@ -1,3 +1,5 @@
+@import '../../../Style/Common.scss';
+
 .main {
   .feeds {
     max-width: 600px;
@@ -5,12 +7,11 @@
     article {
       margin: 35px 0;
       background-color: #fff;
-      border: 1px solid #e6e6e6;
+      border: $gray-border;
     }
 
     header {
-      display: flex;
-      align-items: center;
+      @include flexSet($justify: flex-start);
       margin: 10px;
     }
 
@@ -36,28 +37,26 @@
     }
 
     .feeds-navigation {
-      display: flex;
-      justify-content: space-between;
+      @include flexSet($justify: space-between);
       padding-top: 10px;
     }
 
     .feeds-likes {
-      display: flex;
-      align-items: center;
+      @include flexSet($justify: flex-start);
       height: 30px;
     }
 
     .feeds-comment {
       position: relative;
-      display: flex;
-      align-items: center;
+      @include flexSet($justify: flex-start);
       min-height: 56px;
-      border-top: 1px solid rgba(var(--ce3, 239, 239, 239), 1);
+      border-top: $gray-border;
       line-height: 18px;
     }
 
     .feeds-comment-list ul li {
       position: relative;
+      padding-bottom: 3px;
     }
 
     .feeds-comment-list ul li .comment {
@@ -119,14 +118,12 @@
     width: 300px;
     max-width: 530px;
     padding: 41px 5px 10px;
-    background-color: #fafafa;
+    background-color: $lightgray;
     font-size: 14px;
     margin-left: 20px;
 
     header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+      @include flexSet($justify: flex-start);
     }
 
     .main-right-story-box,
@@ -138,7 +135,7 @@
       padding: 10px 12px;
       margin: 18px 0 0 0;
       background-color: #ffffff;
-      border: 1px solid #eaeaea;
+      border: $gray-border;
       border-radius: 3px;
     }
 
@@ -160,14 +157,11 @@
 
     .main-right-story-box ul li,
     .main-right-friend-box ul li {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+      @include flexSet($justify: flex-start);
       padding: 3px 2px;
     }
 
     footer {
-      width: 100%;
       padding-top: 10px;
       color: #d0d0d0;
       font-size: 11px;
@@ -195,18 +189,15 @@
   }
 
   .container {
-    padding-top: 54px;
-    background-color: #fafafa;
-    display: flex;
-    justify-content: center;
+    @include flexSet;
     position: relative;
+    padding-top: 54px;
+    background-color: $lightgray;
   }
 
   .profile-box,
   .profile-box img {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    @include flexSet;
     width: 42px;
     height: 42px;
 
@@ -218,9 +209,7 @@
   }
 
   .profile-box-desc {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flexSet($align: flex-start, $flexDirection: column);
     padding: 4px 0;
     margin-left: 8px;
 

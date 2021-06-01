@@ -16,7 +16,7 @@ export default class Feed extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        const commentInputArray = data.feeds.map((feed, no) => {
+        const commentInputArray = data.feeds.map(feed => {
           return { id: feed.id, inputValue: '', isValue: false };
         });
         this.setState({
@@ -54,7 +54,7 @@ export default class Feed extends React.Component {
         : {
             ...feed,
             commentsList: feed.commentsList.concat({
-              nickname: 'test',
+              nickname: 'yourname',
               comment: commentsInput,
             }),
           };
@@ -78,7 +78,7 @@ export default class Feed extends React.Component {
 
     return (
       <div className="feeds">
-        {this.state.feeds.map((feed, no) => (
+        {feeds.map(feed => (
           <article key={feed.id}>
             <header>
               <div className="profile-box">
