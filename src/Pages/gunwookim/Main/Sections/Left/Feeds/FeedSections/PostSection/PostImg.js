@@ -4,9 +4,11 @@ import './Post.scss';
 
 class PostImg extends React.Component {
   render() {
+    const { postImg, postImgName } = this.props;
+
     return (
       <div className="PostImg">
-        <img src="/images/gunwookim/img2.jpeg" alt="post" />
+        <img src={postImg} alt={postImgName} />
       </div>
     );
   }

@@ -5,7 +5,7 @@ import Comment from './Comment';
 
 class PostContent extends React.Component {
   render() {
-    const { commentList } = this.props;
+    const { commentList, postcontent } = this.props;
 
     return (
       <div className="PostContent">
@@ -16,7 +16,7 @@ class PostContent extends React.Component {
           <SpanLink to="" text="좋아요사용자" />
         </div>
         <div>
-          <div>여기는 내용</div>
+          <div>{postcontent}</div>
         </div>
         <ul>
           {commentList.map(comment => (
