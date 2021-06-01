@@ -13,7 +13,7 @@ class Feed extends Component {
           </div>
           <div className="showingBox">
             <div className="contents">
-              <img src={this.props.FeedSrc} alt="feeds" />
+              <img src={this.props.feedSrc} alt="feedimg" />
             </div>
 
             <div className="activeContainer">

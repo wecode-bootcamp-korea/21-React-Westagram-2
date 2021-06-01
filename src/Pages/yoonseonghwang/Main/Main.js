@@ -11,12 +11,11 @@ class Main extends React.Component {
       commentList: [],
       commentsList: [],
       disabled: true,
-      Feedsrc: [],
+      feedSrc: [],
     };
   }
 
   handleComment = event => {
-    console.log(event);
     this.setState(
       {
         comment: event.target.value,
@@ -49,26 +48,39 @@ class Main extends React.Component {
           commentsList: data,
         });
       });
+    fetch('http://localhost:3000/data/feedImgData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feedSrc: data,
+        });
+      });
   }
 
   render() {
+    console.log(this.state.feedSrc);
     return (
       <div className="mainPage1">
         <Nav />
 
         <main>
           <div className="feeds">
-            <Feed
-              Feedsrc={this.state.Feedsrc}
-              comment={this.state.comment}
-              commentList={this.state.commentList}
-              commentsList={this.state.commentsList}
-              disabled={this.state.disabled}
-              Feedsrc={this.state.fetch}
-              handleComment={this.handleComment}
-              handleCommentPrint={this.handleCommentPrint}
-              handleValid={this.handleValid}
-            />
+            {this.state.feedSrc.map(imgSrc => {
+              return (
+                <Feed
+                  feedSrc={imgSrc}
+                  comment={this.state.comment}
+                  commentList={this.state.commentList}
+                  commentsList={this.state.commentsList}
+                  disabled={this.state.disabled}
+                  handleComment={this.handleComment}
+                  handleCommentPrint={this.handleCommentPrint}
+                  handleValid={this.handleValid}
+                />
+              );
+            })}
           </div>
 
           <section className="recContainer">
