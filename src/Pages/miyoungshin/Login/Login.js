@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 
 class LoginMi extends React.Component {
@@ -14,15 +15,16 @@ class LoginMi extends React.Component {
   }
 
   inputChange = e => {
+    const { value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
-    console.log(e.target.value);
   };
 
   idFocusChange = () => {
+    const { isIdFocus } = this.state;
     this.setState({
-      isIdFocus: !this.state.isIdFocus,
+      isIdFocus: !isIdFocus,
     });
   };
 
@@ -37,9 +39,9 @@ class LoginMi extends React.Component {
     const valid =
       this.state.id.includes('@') && this.state.password.length >= 5;
 
-    valid
-      ? this.setState({ isLoginActive: true })
-      : this.setState({ isLoginActive: false });
+    this.setState({
+      isLoginActive: valid ? true : false,
+    });
   };
 
   render() {
@@ -105,7 +107,6 @@ class LoginMi extends React.Component {
                 'logInButton ' +
                 (this.state.isLoginActive ? 'logInButtonOn' : 'logInButtonOff')
               }
-              disabled={this.state.isLoginActive}
             >
               Log in
             </button>
@@ -115,41 +116,41 @@ class LoginMi extends React.Component {
               <div className="orLine"></div>
             </div>
             <div className="logInFacebook">
-              <a href="#">
+              <Link to="#">
                 <img
                   src="/images/miyoungshin/login/facebook.png"
                   alt="facebook icon"
                 />
                 <p>Log in with Facebook</p>
-              </a>
+              </Link>
             </div>
             <div className="forgotPassword">
-              <a href="#">Forgot password?</a>
+              <Link to="#">Forgot password?</Link>
             </div>
           </article>
           <article className="signUpBox">
             <p>
-              Don't have an account? <a href="#">Sign up</a>
+              Don't have an account? <Link to="#">Sign up</Link>
             </p>
           </article>
           <article className="getTheApp">
             <p>Get the app.</p>
           </article>
           <article>
-            <a href="#">
+            <Link to="#">
               <img
                 className="appDownloadButton"
                 src="/images/miyoungshin/login/appstore-button.png"
                 alt="app store button"
               />
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="#">
               <img
                 className="appDownloadButton"
                 src="/images/miyoungshin/login/googleplay-button.png"
                 alt="googleplay button"
               />
-            </a>
+            </Link>
           </article>
         </section>
       </div>

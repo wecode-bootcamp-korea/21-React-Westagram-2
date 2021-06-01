@@ -41,6 +41,7 @@
 
     .feeds {
       width: 100vw;
+      margin-top: 15px;
       border-top: $gray-border;
       .feedHead {
         @include flexSet(space-between);
@@ -152,36 +153,6 @@
   .feedPicture {
     width: 600px;
   }
-
-  /*
-  .searchLabelFocus {
-    position: absolute;
-    left: 3px;
-    opacity: 0.4;
-    z-index: 1;
-  }
-
-  .searchFocus {
-    position: absolute;
-    top: 3px;
-    left: 20px;
-    width: 75%;
-    border: 1px solid black;
-  }
-
-  .searchDeleteButton {
-    display: none;
-  }
-
-  .searchDeleteButtonOn {
-    display: inline;
-    position: absolute;
-    right: 5px;
-    top: 3px;
-    color: rgb(145, 145, 145);
-    background-color: $lightgray;
-  }
-*/
 }
 
 @include main-small-tablet {
@@ -232,16 +203,14 @@
           background-color: #ffffff;
           color: $lightblue;
           font-size: 12px;
+          &.postButtonOn {
+            color: #4d95f6;
+            cursor: pointer;
+          }
         }
       }
     }
   }
-  /*
-  .postButtonOn {
-    color: #4d95f6;
-    cursor: pointer;
-  }
-  */
 }
 
 @include main-pc {

@@ -1,14 +1,65 @@
 import React from 'react';
 import CommonNav from '../../../Components/Nav/Nav';
+import CommentList from './CommentList';
+import COMMENT from './Data/CommentData';
+import REACTION from './Data/FeedReactionData';
 import './Main.scss';
 
 class MainMi extends React.Component {
   constructor() {
     super();
     this.state = {
+      commentsList: [],
+      feedsList: [],
+      commentValue: '',
       isPostActive: false,
     };
   }
+
+  componentDidMount() {
+    this.setState({
+      commentsList: COMMENT,
+    });
+  }
+
+  inputChange = e => {
+    const { value } = e.target;
+    this.setState({
+      commentValue: value,
+    });
+  };
+
+  postButtonChange = e => {
+    const { commentValue } = this.state;
+    if (commentValue !== '') {
+      if (e.key === 'Enter') {
+        this.addComment();
+      } else {
+        this.setState({
+          isPostActive: true,
+        });
+      }
+    } else {
+      this.setState({
+        isPostActive: false,
+      });
+    }
+  };
+
+  addComment = () => {
+    const { commentsList, commentValue } = this.state;
+    this.setState({
+      commentsList: [
+        ...commentsList,
+        {
+          id: commentsList.length + 1,
+          userName: 'wecode',
+          content: commentValue,
+        },
+      ],
+      commentValue: '',
+    });
+  };
 
   render() {
     return (
@@ -42,30 +93,20 @@ class MainMi extends React.Component {
               <div className="feedBody">
                 <img
                   className="feedPicture"
-                  src="/images/miyoungshin/main/feed-image.JPG"
+                  src="/images/miyoungshin/main/feed/my_sshin-feed-image.JPG"
                   alt="feed"
                 />
                 <div className="feedReaction">
-                  <img
-                    className="floatLeft"
-                    src="/images/miyoungshin/main/icon/heart.png"
-                    alt="heart icon"
-                  />
-                  <img
-                    className="floatLeft"
-                    src="/images/miyoungshin/main/icon/chat.png"
-                    alt="chat icon"
-                  />
-                  <img
-                    className="floatLeft"
-                    src="/images/miyoungshin/main/icon/send.png"
-                    alt="send icon"
-                  />
-                  <img
-                    className="floatRight"
-                    src="/images/miyoungshin/main/icon/bookmark_white.png"
-                    alt="bookmark icon"
-                  />
+                  {REACTION.map(el => {
+                    return (
+                      <img
+                        key={el.id}
+                        className={el.className}
+                        src={el.url}
+                        alt={el.alt}
+                      />
+                    );
+                  })}
                 </div>
                 <div className="feedInfo">
                   <div className="feedLikes">15 likes</div>
@@ -74,18 +115,9 @@ class MainMi extends React.Component {
                   </div>
                   <div className="feedCommentsList">
                     <ul>
-                      <li>
-                        <span class="commentId">ninini </span>
-                        <span class="commentText">예쁘다!</span>
-                        <button class="commentDeleteButton">delete</button>
-                        <button>
-                          <img
-                            class="commentLikesButton"
-                            src="/images/miyoungshin/main/icon/heart.png"
-                            alt="heart icon"
-                          />
-                        </button>
-                      </li>
+                      {this.state.commentsList.length > 0 && (
+                        <CommentList list={this.state.commentsList} />
+                      )}
                     </ul>
                   </div>
                   <div className="feedDate">42 MINUTES AGO</div>
@@ -99,8 +131,17 @@ class MainMi extends React.Component {
                     id="commentInput"
                     type="text"
                     placeholder="Add a comment..."
+                    value={this.state.commentValue}
+                    onChange={this.inputChange}
+                    onKeyUp={this.postButtonChange}
                   />
-                  <button id="postButton" disabled="disabled">
+                  <button
+                    id="postButton"
+                    className={this.state.isPostActive ? 'postButtonOn' : ''}
+                    onClick={
+                      this.state.isPostActive ? this.addComment : undefined
+                    }
+                  >
                     Post
                   </button>
                 </div>
@@ -110,7 +151,7 @@ class MainMi extends React.Component {
           <aside>
             <div className="myAccount">
               <img src="/images/common/wecode-profile.jpeg" alt="my profile" />
-              <div className="myAccount-id">wecode_</div>
+              <div className="myAccount-id">wecode</div>
               <button className="sideButton">Swicth</button>
             </div>
             <div className="suggestions">

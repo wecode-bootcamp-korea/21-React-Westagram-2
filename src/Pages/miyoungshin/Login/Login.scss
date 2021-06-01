@@ -201,38 +201,3 @@
     display: none;
   }
 }
-
-/*
-.filledInput {
-  animation-name: inputLabelChange;
-  animation-duration: 300ms;
-  animation-fill-mode: both;
-}
-
-@keyframes inputLabelChange {
-  0% {
-    padding-top: 8px;
-    font-size: 1em;
-  }
-  100% {
-    padding-top: 3px;
-    font-size: 0.8em;
-  }
-}
-
-.filledInput {
-  animation-name: inputChange;
-  animation-duration: 100ms;
-  animation-fill-mode: both;
-}
-
-@keyframes inputChange {
-  0% {
-    top: 10px;
-  }
-  100% {
-    top: 15px;
-    font-size: 0.8em;
-  }
-}
-*/
