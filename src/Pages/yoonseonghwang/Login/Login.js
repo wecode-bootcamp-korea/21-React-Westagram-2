@@ -6,32 +6,36 @@ class Login extends React.Component {
     super();
     this.state = {
       backgroundColor: '#c0dffd',
-
-      // disable 처리
-      // disabled: true,
+      disabled: true,
       id: '',
       pw: '',
     };
   }
 
   handleIdInput = event => {
-    this.setState({
-      id: event.target.value,
-    });
+    this.setState(
+      {
+        id: event.target.value,
+      },
+      this.eventHandler
+    );
   };
 
   handlePwInput = event => {
-    this.setState({
-      pw: event.target.value,
-    });
-    console.log(this.state.pw.length < 5);
-
-    // 삼항 연산자 활용 유효성 검사 주석 처리
-
-    // !this.state.id.includes('@') || this.state.pw.length < 5
-    //   ? this.setState({ disabled: true, backgroundColor: '#c0dffd' })
-    //   : this.setState({ disabled: false, backgroundColor: '#0095f6' });
+    this.setState(
+      {
+        pw: event.target.value,
+      },
+      this.eventHandler
+    );
   };
+
+  eventHandler = () => {
+    !this.state.id.includes('@') || this.state.pw.length < 5
+      ? this.setState({ disabled: true, backgroundColor: '#c0dffd' })
+      : this.setState({ disabled: false, backgroundColor: '#0095f6' });
+  };
+
   goToMain = () => {
     this.props.history.push('./Main');
   };
@@ -79,12 +83,8 @@ class Login extends React.Component {
                       type="submit"
                       className="loginBtn"
                       onClick={this.goToMain}
-                      //  스타일 주석 처리
-                      // style={{ backgroundColor: this.state.backgroundColor }}
-                      disabled={
-                        // {this.state.disabled}
-                        !this.state.id.includes('@') || this.state.pw.length < 5
-                      }
+                      style={{ backgroundColor: this.state.backgroundColor }}
+                      disabled={this.state.disabled}
                     >
                       로그인
                     </button>
