@@ -4,19 +4,21 @@ class Comment extends Component {
   render() {
     return (
       <>
-        <li>
-          <div className="commentBox">
-            <div className="commentPrint">
-              <span className="userId">yoon_in_verse</span>
-              <span>{this.props.text}</span>
-            </div>
+        {this.props.commentList.map((comment, idx) => (
+          <li key={idx}>
+            <div className="commentBox">
+              <div className="commentPrint">
+                <span className="userId">yoon_in_verse</span>
+                <span>{comment}</span>
+              </div>
 
-            <div className="commBtn">
-              <button className="like">♥️</button>
-              <button className="delComm">X</button>
+              <div className="commBtn">
+                <button className="like">♥️</button>
+                <button className="delComm">X</button>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        ))}
       </>
     );
   }

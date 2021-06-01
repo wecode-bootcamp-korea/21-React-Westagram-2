@@ -7,48 +7,12 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      comment: '',
-      commentList: [],
-      commentsList: [],
-      disabled: true,
       feedSrc: [],
     };
   }
 
-  handleComment = event => {
-    this.setState(
-      {
-        comment: event.target.value,
-      },
-      this.handleValid
-    );
-  };
-
-  handleValid = () => {
-    this.state.comment.length >= 1
-      ? this.setState({ disabled: false })
-      : this.setState({ disabled: true });
-  };
-
-  handleCommentPrint = event => {
-    this.setState({
-      commentList: this.state.commentList.concat(this.state.comment),
-      comment: '',
-      disabled: true,
-    });
-  };
-
   componentDidMount() {
     fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          commentsList: data,
-        });
-      });
-    fetch('http://localhost:3000/data/feedImgData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -60,24 +24,18 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log(this.state.feedSrc);
     return (
       <div className="mainPage1">
         <Nav />
 
         <main>
           <div className="feeds">
-            {this.state.feedSrc.map(imgSrc => {
+            {this.state.feedSrc.map(content => {
               return (
                 <Feed
-                  feedSrc={imgSrc}
-                  comment={this.state.comment}
-                  commentList={this.state.commentList}
-                  commentsList={this.state.commentsList}
-                  disabled={this.state.disabled}
-                  handleComment={this.handleComment}
-                  handleCommentPrint={this.handleCommentPrint}
-                  handleValid={this.handleValid}
+                  feedSrc={content.img}
+                  likeCount={content.likeCount}
+                  commentsList={content.contentsWrap}
                 />
               );
             })}

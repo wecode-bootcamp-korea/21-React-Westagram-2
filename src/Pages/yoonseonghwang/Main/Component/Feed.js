@@ -3,7 +3,42 @@ import Comment from './Comment';
 import Comments from './Comments';
 
 class Feed extends Component {
+  constructor() {
+    super();
+    this.state = {
+      comment: '',
+      commentList: [],
+      disabled: true,
+    };
+  }
+
+  handleComment = event => {
+    this.setState(
+      {
+        comment: event.target.value,
+      },
+      this.handleValid
+    );
+  };
+
+  handleValid = () => {
+    this.state.comment.length >= 1
+      ? this.setState({ disabled: false })
+      : this.setState({ disabled: true });
+  };
+
+  handleCommentPrint = event => {
+    event.preventDefault();
+    this.setState({
+      commentList: this.state.commentList.concat(this.state.comment),
+      disabled: true,
+      comment: '',
+    });
+  };
+
   render() {
+    console.log(this.state.comment);
+    const { feedSrc, likeCount, commentsList } = this.props;
     return (
       <article className="feed">
         <div className="contentsContainer">
@@ -13,7 +48,7 @@ class Feed extends Component {
           </div>
           <div className="showingBox">
             <div className="contents">
-              <img src={this.props.feedSrc} alt="feedimg" />
+              <img src={feedSrc} alt="feedimg" />
             </div>
 
             <div className="activeContainer">
@@ -49,13 +84,13 @@ class Feed extends Component {
               </div>
 
               <div className="countingBox">
-                좋아요 <span>43</span> 개
+                좋아요 <span>{likeCount}</span> 개
               </div>
             </div>
 
             <div className="commentContainer">
               <ul>
-                {this.props.commentsList.map(comment => {
+                {commentsList.map(comment => {
                   return (
                     <Comments
                       key={comment.id}
@@ -64,31 +99,29 @@ class Feed extends Component {
                     />
                   );
                 })}
-                {this.props.commentList.map((x, idx) => {
-                  return <Comment text={x} key={idx} />;
-                })}
+                <Comment commentList={this.state.commentList} />
               </ul>
             </div>
 
-            <div className="inputBox">
+            <form className="inputBox" onSubmit={this.handleCommentPrint}>
               <input
                 type="text"
                 placeholder="댓글 달기..."
                 className="inputComment"
                 id="inputComment"
-                value={this.props.comment}
-                onChange={this.props.handleComment}
+                value={this.state.comment}
+                onChange={this.handleComment}
               />
               <button
                 type="submit"
                 className="commentButton"
                 id="commentButton"
-                onClick={this.props.handleCommentPrint}
-                disabled={this.props.disabled}
+                onClick={this.handleCommentPrint}
+                disabled={this.state.disabled}
               >
                 게시
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </article>
