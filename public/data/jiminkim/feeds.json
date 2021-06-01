@@ -1,0 +1,29 @@
+{
+  "nickname": "jemizem",
+  "feeds": [
+    {
+      "id": 1,
+      "img": "/images/jiminkim/main_img1.jpeg",
+      "content": "인스타 그램 클론 코딩...",
+      "likes": ["kimjimin", "test1", "test3"],
+      "times": "42분 전",
+      "isLike": true,
+      "isBookmark": false,
+      "commentsList": [
+        { "nickname": "jiminkim", "comment": "hi?", "isHeart": true },
+        { "nickname": "hehehe", "comment": "재미있어요!", "isHeart": false }
+      ]
+    },
+
+    {
+      "id": 2,
+      "img": "/images/jiminkim/main_img2.jpeg",
+      "content": "우리집 멍멍이 쿠키입니당...",
+      "likes": ["kimjimin", "test1", "test3"],
+      "times": "방금 전",
+      "isLike": true,
+      "isBookmark": false,
+      "commentsList": []
+    }
+  ]
+}
