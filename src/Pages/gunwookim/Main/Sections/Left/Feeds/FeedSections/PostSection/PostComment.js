@@ -6,7 +6,7 @@ import './Post.scss';
 
 class PostComment extends React.Component {
   render() {
-    const { content, handleInput, addCommentList } = this.props;
+    const { content, handleInput, addCommentList, postId } = this.props;
 
     return (
       <div className="PostComment">
@@ -18,13 +18,13 @@ class PostComment extends React.Component {
             type="text"
             placeholder="댓글 입력..."
             name="content"
-            onChange={handleInput}
-            onKeyPress={handleInput}
+            onChange={e => handleInput(e, postId)}
+            onKeyPress={e => handleInput(e, postId)}
             value={content}
           />
         </div>
         <div className="fixed">
-          <button onClick={addCommentList}>게시</button>
+          <button onClick={() => addCommentList(postId)}>게시</button>
         </div>
       </div>
     );

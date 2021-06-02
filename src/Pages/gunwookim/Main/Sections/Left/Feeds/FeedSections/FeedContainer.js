@@ -9,7 +9,7 @@ import '../Feed.scss';
 
 class FeedContainer extends React.Component {
   render() {
-    const { feed, handleInput, addCommentList } = this.props;
+    const { feed, handleInput, addCommentList, content } = this.props;
 
     return (
       <div className="FeedContainer">
@@ -20,7 +20,8 @@ class FeedContainer extends React.Component {
           postcontent={feed.postcontent}
         />
         <PostComment
-          content={feed.content}
+          postId={feed.postId}
+          content={content}
           handleInput={handleInput}
           addCommentList={addCommentList}
         />

@@ -38,7 +38,7 @@
         "isLiked": true
       },
       {
-        "id": 3,
+        "id": 2,
         "userName": "jayPark",
         "content": "Hey.",
         "isLiked": false
@@ -52,7 +52,7 @@
     "postcontent": "Hey.",
     "commentList": [
       {
-        "id": 3,
+        "id": 1,
         "userName": "jayPark",
         "content": "Hey.",
         "isLiked": false

@@ -29,6 +29,46 @@ class Login extends React.Component {
     });
   };
 
+  signUp = e => {
+    e.preventDefault();
+
+    let url = `http://10.58.5.104:8000/user/signup`;
+    // url = `http://10.58.2.8:8000/user/signup`;
+
+    const { email, password } = this.state;
+
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        password,
+        nickname: 'AAAA',
+        phone_number: '010-1234-5678',
+      }),
+    })
+      .then(res => res.json())
+      .then(result => console.log(result));
+  };
+
+  signIn = e => {
+    e.preventDefault();
+    let url = `http://10.58.5.104:8000/user/signin`;
+    // url = `http://10.58.2.8:8000/user/signin`;
+    const { email, password } = this.state;
+
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+      });
+  };
+
   render() {
     const { isVerify } = this.state;
 
@@ -52,7 +92,10 @@ class Login extends React.Component {
                 placeholder="비밀번호"
                 onChange={this.handleInput}
               />
-              <button disabled={!isVerify}>로그인</button>
+              <button onClick={this.signUp}>회원가입</button>
+              <button disabled={!isVerify} onClick={this.signIn}>
+                로그인
+              </button>
             </form>
           </div>
           <div>
