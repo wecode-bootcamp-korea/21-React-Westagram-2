@@ -33,8 +33,21 @@ class Login extends React.Component {
   };
 
   handleLogin = e => {
-    if (!this.state.isPossibleLogin) return false;
-    this.props.history.push('/jiminkim/main');
+    //http://10.58.7.179:8000/users/signin
+
+    fetch('http://10.58.7.179:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.loginId,
+        password: this.state.loginPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+    // if (!this.state.isPossibleLogin) return false;
+    // this.props.history.push('/jiminkim/main');
   };
 
   render() {

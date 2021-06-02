@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class CommentsList extends React.Component {
   render() {
-    const { feedId, commentsList } = this.props;
+    const { feedId, commentsList, deleteComment } = this.props;
 
     return (
       <>
@@ -16,7 +16,7 @@ export default class CommentsList extends React.Component {
                   <button
                     className="comment-delete-button"
                     onClick={() => {
-                      this.props.deleteComment(feedId, no);
+                      deleteComment(feedId, no);
                     }}
                   >
                     ✖️

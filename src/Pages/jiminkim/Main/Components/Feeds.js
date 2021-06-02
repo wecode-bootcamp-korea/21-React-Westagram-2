@@ -71,7 +71,22 @@ export default class Feed extends React.Component {
   };
 
   // 댓글 삭제 Event (구현예정)
-  deleteComment = feedId => {};
+  deleteComment = (feedId, no) => {
+    // state.feeds
+    // const newComments = this.state.feeds.map(feed => {
+    //   return feed.id !== feedId
+    //     ? feed
+    //     : [
+    //         feed.map(f => {
+    //           f.commentsList.splice(no, 1);
+    //         }),
+    //       ];
+    // });
+    //console.log(newComments);
+    //this.setState({
+    //   feeds: newComments,
+    // });
+  };
 
   render() {
     const { feeds } = this.state;

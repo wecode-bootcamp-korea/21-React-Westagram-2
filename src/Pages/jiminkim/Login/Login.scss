@@ -1,24 +1,24 @@
 @import '../../../Style/Common.scss';
 
 .login {
-  background-color: $lightgray;
   @include flexSet;
   height: 100vh;
+  background-color: $lightgray;
 
   .login-box {
     display: flex;
     flex-direction: column;
-    background-color: white;
-    border: $gray-border;
     width: 450px;
     height: 480px;
     padding: 30px;
+    background-color: white;
+    border: $gray-border;
   }
 
   h1.title {
+    padding-bottom: 20px;
     font-family: $logo-font;
     text-align: center;
-    padding-bottom: 20px;
   }
 
   input {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { INFO } from '../../footerData.js';
 
 export default class MainRight extends React.Component {
   render() {
@@ -109,17 +110,9 @@ export default class MainRight extends React.Component {
         </div>
         <footer>
           <ul>
-            <li>Instagram 정보</li>
-            <li>지원</li>
-            <li>홍보 센터</li>
-            <li>API</li>
-            <li>채용 정보</li>
-            <li>개인정보처리방침</li>
-            <li>약관</li>
-            <li>디렉터리</li>
-            <li>프로필</li>
-            <li>해시태그</li>
-            <li>언어</li>
+            {INFO.map(item => {
+              return <li key={item.id}>{item.item}</li>;
+            })}
           </ul>
           <span className="copylight">@ 2021 WESTAGRAM</span>
         </footer>
