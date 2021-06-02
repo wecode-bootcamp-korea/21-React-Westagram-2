@@ -85,8 +85,25 @@
             display: flex;
             font-size: 14px;
             justify-content: space-between;
+            .commBtn {
+              .like,
+              .delComm {
+                background-color: white;
+              }
+            }
+
+            .commentVerEmpty {
+              -webkit-text-stroke: 1px #000;
+              -webkit-text-fill-color: transparent;
+            }
+
+            .commentVerFill {
+              color: red;
+            }
+
             .commentPrint {
               margin-right: 10px;
+
               .userId {
                 font-weight: bold;
                 margin-right: 10px;
@@ -111,6 +128,10 @@
     display: flex;
     margin-left: 10px;
     align-items: flex-start;
+
+    .like {
+      fill: #0095f6;
+    }
   }
 
   .cBarRight {
@@ -282,3 +303,17 @@
 }
 
 /* main */
+.empty {
+  font-size: 20px;
+  -webkit-text-stroke: 1px #000;
+  -webkit-text-fill-color: transparent;
+}
+
+.fill {
+  font-size: 20px;
+  color: red;
+}
+
+.like {
+  background-color: none;
+}

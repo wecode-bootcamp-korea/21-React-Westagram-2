@@ -2,6 +2,7 @@
   {
     "img": "/images/yoonseonghwang/feed/feedCafe.jpg",
     "likeCount": "100",
+    "likeBtnValid": true,
     "contentsWrap": [
       {
         "id": 1,
@@ -13,6 +14,7 @@
   {
     "img": "/images/yoonseonghwang/feed/feedCafe.jpg",
     "likeCount": "1020",
+    "likeBtnValid": false,
     "contentsWrap": [
       {
         "id": 2,
@@ -24,6 +26,7 @@
   {
     "img": "/images/yoonseonghwang/feed/feedCafe.jpg",
     "likeCount": "10310",
+    "likeBtnValid": true,
     "contentsWrap": [
       {
         "id": 3,

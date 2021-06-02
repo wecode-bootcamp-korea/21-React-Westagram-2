@@ -9,6 +9,8 @@ class Feed extends Component {
       comment: '',
       commentList: [],
       disabled: true,
+      likeValid: [],
+      btnClassName: 'fas fa-heart empty',
     };
   }
 
@@ -36,6 +38,12 @@ class Feed extends Component {
     });
   };
 
+  likeBtnValid = () => {
+    !this.state.likeValid === true
+      ? this.setState({ likeValid: true, btnClassName: 'fas fa-heart fill' })
+      : this.setState({ likeValid: false, btnClassName: 'fas fa-heart empty' });
+  };
+
   render() {
     console.log(this.state.comment);
     const { feedSrc, likeCount, commentsList } = this.props;
@@ -54,11 +62,8 @@ class Feed extends Component {
             <div className="activeContainer">
               <div className="comunicateBar">
                 <div className="cBarLeft">
-                  <button className="like">
-                    <img
-                      src="/images/yoonseonghwang/comment/heart.png"
-                      alt="like"
-                    />
+                  <button className="like" onClick={this.likeBtnValid}>
+                    <i className={this.state.btnClassName} />
                   </button>
                   <button>
                     <img

@@ -13,7 +13,9 @@ class Comment extends Component {
               </div>
 
               <div className="commBtn">
-                <button className="like">♥️</button>
+                <button className="like">
+                  <i className="fas fa-heart commentVerEmpty" />
+                </button>
                 <button className="delComm">X</button>
               </div>
             </div>

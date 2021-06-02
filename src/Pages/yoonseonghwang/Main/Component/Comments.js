@@ -12,8 +12,12 @@ class Comments extends Component {
             </div>
 
             <div className="commBtn">
-              <button className="like">♥️</button>
-              <button className="delComm">X</button>
+              <button className="like">
+                <i className="fas fa-heart commentVerEmpty" />
+              </button>
+              <button className="delComm" onClick={this.handleDelte}>
+                X
+              </button>
             </div>
           </div>
         </li>

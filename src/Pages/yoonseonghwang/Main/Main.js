@@ -36,6 +36,7 @@ class Main extends React.Component {
                   feedSrc={content.img}
                   likeCount={content.likeCount}
                   commentsList={content.contentsWrap}
+                  likeBtnValid={content.likeBtnValid}
                 />
               );
             })}
