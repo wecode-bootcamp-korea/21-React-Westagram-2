@@ -2,8 +2,8 @@ import React from 'react';
 import './Main.scss';
 import '../Styles/common.scss';
 import Header from '../../../Components/Nav/Nav';
-import Feeds from './Components/Feeds';
-import MainRight from './Components/MainRight';
+import Feeds from './Feeds/Feeds';
+import MainRight from './MainRight/MainRight';
 
 function Main() {
   return (

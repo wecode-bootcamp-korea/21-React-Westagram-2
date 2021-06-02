@@ -3,25 +3,42 @@
   "feeds": [
     {
       "id": 1,
+      "writer": "jiminkim",
       "img": "/images/jiminkim/main_img1.jpeg",
       "content": "인스타 그램 클론 코딩...",
       "likes": ["kimjimin", "test1", "test3"],
-      "times": "42분 전",
+      "times": "방금 전",
       "isLike": true,
       "isBookmark": false,
       "commentsList": [
-        { "nickname": "jiminkim", "comment": "hi?", "isHeart": true },
-        { "nickname": "hehehe", "comment": "재미있어요!", "isHeart": false }
+        { "no": 1, "nickname": "jiminkim", "comment": "hi?", "isHeart": true },
+        {
+          "no": 2,
+          "nickname": "hehehe",
+          "comment": "재미있어요!",
+          "isHeart": false
+        }
       ]
     },
-
     {
       "id": 2,
+      "writer": "jiminkim",
       "img": "/images/jiminkim/main_img2.jpeg",
       "content": "우리집 멍멍이 쿠키입니당...",
       "likes": ["kimjimin", "test1", "test3"],
-      "times": "방금 전",
-      "isLike": true,
+      "times": "16분 전",
+      "isLike": false,
+      "isBookmark": false,
+      "commentsList": []
+    },
+    {
+      "id": 3,
+      "writer": "jiminkim",
+      "img": "https://picsum.photos/400",
+      "content": "위 사진은 픽션입니다.",
+      "likes": ["kimjimin", "test1", "test3"],
+      "times": "2일 전",
+      "isLike": false,
       "isBookmark": false,
       "commentsList": []
     }

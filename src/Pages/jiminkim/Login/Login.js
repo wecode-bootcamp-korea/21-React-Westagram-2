@@ -33,19 +33,19 @@ class Login extends React.Component {
   };
 
   handleLogin = e => {
+    //[2021.6.2]백엔드와 첫 통신
     //http://10.58.7.179:8000/users/signin
-
-    fetch('http://10.58.7.179:8000/users/signin', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: this.state.loginId,
-        password: this.state.loginPw,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
+    // fetch('http://10.58.7.179:8000/users/signin', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: this.state.loginId,
+    //     password: this.state.loginPw,
+    //   }),
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data);
+    //   });
     // if (!this.state.isPossibleLogin) return false;
     // this.props.history.push('/jiminkim/main');
   };

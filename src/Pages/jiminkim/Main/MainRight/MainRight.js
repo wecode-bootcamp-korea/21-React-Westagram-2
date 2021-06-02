@@ -10,7 +10,7 @@ export default class MainRight extends React.Component {
             <img src="/images/jiminkim/profile_img.jpeg" alt="프로필 사진" />
           </div>
           <div className="profile-box-desc">
-            <div className="bold">jemizem</div>
+            <div className="bold">jiminkim</div>
             <div className="gray">Wecode 21기 김지민입니다</div>
           </div>
         </header>
