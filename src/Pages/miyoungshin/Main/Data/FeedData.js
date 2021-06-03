@@ -8,8 +8,8 @@ const FEED = [
     picture: '/images/miyoungshin/main/feed/my_sshin-feed-image.JPG',
     likes: 12,
     content: '그림 같은 카페',
-    date: '42 MINUTES AGO',
-    comment: COMMENT,
+    date: '42 MINUTES',
+    // comment: COMMENT,
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const FEED = [
     picture: '/images/miyoungshin/main/feed/meongsta-feed-image.JPG',
     likes: 120,
     content: '한가롭구만',
-    date: '2 HOURS AGO',
+    date: '2 HOURS',
   },
   {
     id: 3,
@@ -26,11 +26,9 @@ const FEED = [
     profile: '/images/miyoungshin/main/profile/wecode-profile.jpeg',
     picture: '/images/miyoungshin/main/feed/wecode-feed-image.JPG',
     likes: 12,
-    content: '영아일랜드',
-    date: '3 HOURS AGO',
+    content: '영아일랜드..꺄아!',
+    date: '3 HOURS',
   },
 ];
-
-console.log(FEED);
 
 export default FEED;

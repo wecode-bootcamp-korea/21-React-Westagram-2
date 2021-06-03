@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import CommentList from './CommentList';
-import COMMENT from './CommentData';
+import COMMENT from '../Data/CommentData';
+import REACTION from '../Data/FeedReactionData';
 
-class FeedList extends Component {
+class HandleFeed extends Component {
   constructor() {
     super();
     this.state = {
       commentsList: [],
       commentValue: '',
       isPostActive: false,
+      userId: 'wecode',
     };
   }
 
@@ -26,82 +28,61 @@ class FeedList extends Component {
 
   postButtonChange = e => {
     if (this.state.commentValue !== '') {
-      if (e.key === 'Enter') {
-        this.addComment();
-      } else {
-        this.setState({
-          isPostActive: true,
-        });
-      }
+      e.key === 'Enter'
+        ? this.addComment()
+        : this.setState({ isPostActive: true });
     } else {
-      this.setState({
-        isPostActive: false,
-      });
+      this.setState({ isPostActive: false });
     }
   };
 
   addComment = () => {
-    const { commentsList, commentValue } = this.state;
+    const { commentsList, commentValue, userId } = this.state;
     this.setState({
       commentsList: [
         ...commentsList,
         {
           id: commentsList.length + 1,
-          userName: 'wecode',
+          userName: userId,
           content: commentValue,
         },
       ],
       commentValue: '',
+      isPostActive: false,
     });
   };
 
   render() {
-    const { list } = this.props;
-    return list.map(feed => {
+    const { feed } = this.props;
+    return feed.map(feed => {
       return (
         <div className="feeds" key={feed.id}>
           <div className="feedHead">
             <div className="account">
-              <img
-                src="/images/miyoungshin/main/profile/my-profile.jpeg"
-                alt="my profile"
-              />
-              <div>my_sshin</div>
+              <img src={feed.profile} alt="my profile" />
+              <div>{feed.userName}</div>
             </div>
             <div className="accountMore">・・・</div>
           </div>
           <div className="feedBody">
-            <img
-              className="feedPicture"
-              src="/images/miyoungshin/main/feed-image.JPG"
-              alt="feed"
-            />
+            <img className="feedPicture" src={feed.picture} alt="feed" />
             <div className="feedReaction">
-              <img
-                className="floatLeft"
-                src="/images/miyoungshin/main/icon/heart.png"
-                alt="heart icon"
-              />
-              <img
-                className="floatLeft"
-                src="/images/miyoungshin/main/icon/chat.png"
-                alt="chat icon"
-              />
-              <img
-                className="floatLeft"
-                src="/images/miyoungshin/main/icon/send.png"
-                alt="send icon"
-              />
-              <img
-                className="floatRight"
-                src="/images/miyoungshin/main/icon/bookmark_white.png"
-                alt="bookmark icon"
-              />
+              {REACTION.map(el => {
+                return (
+                  <img
+                    key={el.id}
+                    className={el.className}
+                    src={el.url}
+                    alt={el.alt}
+                  />
+                );
+              })}
             </div>
             <div className="feedInfo">
-              <div className="feedLikes">15 likes</div>
+              <div className="feedLikes">{feed.likes} likes</div>
               <div className="feedContents">
-                <span className="myAccountId">my_sshin</span> 그림같은 카페
+                <span className="myAccountId">{feed.userName} </span>
+                {feed.content}
               </div>
               <div className="feedCommentsList">
                 <ul>
@@ -110,7 +91,7 @@ class FeedList extends Component {
                   )}
                 </ul>
               </div>
-              <div className="feedDate">42 MINUTES AGO</div>
+              <div className="feedDate">{feed.date} AGO</div>
             </div>
             <div className="feedComment">
               <img
@@ -140,4 +121,4 @@ class FeedList extends Component {
   }
 }
 
-export default FeedList;
+export default HandleFeed;

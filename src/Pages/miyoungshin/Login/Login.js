@@ -43,8 +43,35 @@ class LoginMi extends React.Component {
       isLoginActive: valid ? true : false,
     });
   };
+  // 회원가입&로그인 fetch
+  // handleResister = () => {
+  //   fetch('http://10.58.1.87:8002/userapp/user', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: this.state.id,
+  //       password: this.state.password,
+  //       nickname: '신코드',
+  //       mobile: '010-1174-2345',
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => console.log('결과: ', result));
+  // };
+
+  // handleLogin = () => {
+  //   fetch('http://10.58.1.87:8002/userapp/log', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: this.state.id,
+  //       password: this.state.password,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => console.log('결과: ', result));
+  // };
 
   render() {
+    const { id, password, isIdFocus, isPwFocus, isLoginActive } = this.state;
     return (
       <div className="loginMi">
         <section>
@@ -65,15 +92,14 @@ class LoginMi extends React.Component {
             <h1>Westagram</h1>
             <div
               className={
-                'idInput ' +
-                (this.state.isIdFocus ? 'inputFocusOn' : 'inputFocusOff')
+                'idInput ' + (isIdFocus ? 'inputFocusOn' : 'inputFocusOff')
               }
             >
               <input
                 type="text"
                 placeholder="Phone number, username, or email"
                 name="id"
-                value={this.state.id}
+                value={id}
                 onFocus={this.idFocusChange}
                 onBlur={this.idFocusChange}
                 onChange={this.inputChange}
@@ -85,15 +111,14 @@ class LoginMi extends React.Component {
             </div>
             <div
               className={
-                'pwInput ' +
-                (this.state.isPwFocus ? 'inputFocusOn' : 'inputFocusOff')
+                'pwInput ' + (isPwFocus ? 'inputFocusOn' : 'inputFocusOff')
               }
             >
               <input
                 type="password"
                 name="password"
                 placeholder="Password"
-                value={this.state.password}
+                value={password}
                 onFocus={this.pwFocusChange}
                 onBlur={this.pwFocusChange}
                 onChange={this.inputChange}
@@ -105,8 +130,10 @@ class LoginMi extends React.Component {
             <button
               className={
                 'logInButton ' +
-                (this.state.isLoginActive ? 'logInButtonOn' : 'logInButtonOff')
+                (isLoginActive ? 'logInButtonOn' : 'logInButtonOff')
               }
+              disabled={!isLoginActive}
+              onClick={this.handleLogin}
             >
               Log in
             </button>
