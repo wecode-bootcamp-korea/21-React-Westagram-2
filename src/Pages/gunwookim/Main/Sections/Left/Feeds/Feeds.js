@@ -7,7 +7,14 @@ import FeedContainer from './FeedSections/FeedContainer';
 
 class Feeds extends React.Component {
   render() {
-    const { feed, handleInput, addCommentList, content } = this.props;
+    const {
+      feed,
+      handleInput,
+      addCommentList,
+      content,
+      commentDelete,
+      onTest,
+    } = this.props;
 
     return (
       <div className="Feeds">
@@ -17,6 +24,8 @@ class Feeds extends React.Component {
           content={content}
           handleInput={handleInput}
           addCommentList={addCommentList}
+          commentDelete={commentDelete}
+          onTest={onTest}
         />
       </div>
     );

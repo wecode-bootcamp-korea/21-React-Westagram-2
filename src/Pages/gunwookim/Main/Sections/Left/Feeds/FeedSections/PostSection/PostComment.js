@@ -10,22 +10,25 @@ class PostComment extends React.Component {
 
     return (
       <div className="PostComment">
-        <div className="fixed">
-          <ImgLink src="/images/gunwookim/smile.png" alt="smile" to="" />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="댓글 입력..."
-            name="content"
-            onChange={e => handleInput(e, postId)}
-            onKeyPress={e => handleInput(e, postId)}
-            value={content}
-          />
-        </div>
-        <div className="fixed">
-          <button onClick={() => addCommentList(postId)}>게시</button>
-        </div>
+        <form>
+          <div className="fixed">
+            <ImgLink src="/images/gunwookim/smile.png" alt="smile" to="" />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              placeholder="댓글 입력..."
+              name="content"
+              onChange={e => handleInput(e, postId)}
+              value={content}
+            />
+          </div>
+
+          <div className="fixed">
+            <button onClick={e => addCommentList(e, postId)}>게시</button>
+          </div>
+        </form>
       </div>
     );
   }

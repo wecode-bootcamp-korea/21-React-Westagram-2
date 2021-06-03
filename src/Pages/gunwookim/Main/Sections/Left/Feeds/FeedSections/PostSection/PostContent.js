@@ -5,7 +5,7 @@ import Comment from './Comment';
 
 class PostContent extends React.Component {
   render() {
-    const { commentList, postcontent } = this.props;
+    const { postId, commentList, postcontent, commentDelete } = this.props;
 
     return (
       <div className="PostContent">
@@ -20,7 +20,12 @@ class PostContent extends React.Component {
         </div>
         <ul>
           {commentList.map(comment => (
-            <Comment key={comment.id} comment={comment} />
+            <Comment
+              key={comment.id}
+              postId={postId}
+              comment={comment}
+              commentDelete={commentDelete}
+            />
           ))}
         </ul>
       </div>
