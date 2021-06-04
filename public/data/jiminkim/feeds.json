@@ -5,8 +5,8 @@
       "id": 1,
       "writer": "jiminkim",
       "img": "/images/jiminkim/main_img1.jpeg",
-      "content": "인스타 그램 클론 코딩...",
-      "likes": ["kimjimin", "test1", "test3"],
+      "content": "인스타 그램 클론 코딩",
+      "likes": [],
       "times": "방금 전",
       "isLike": true,
       "isBookmark": false,
@@ -24,8 +24,24 @@
       "id": 2,
       "writer": "jiminkim",
       "img": "/images/jiminkim/main_img2.jpeg",
-      "content": "우리집 멍멍이 쿠키입니당...",
-      "likes": ["kimjimin", "test1", "test3"],
+      "content": "우리집 멍멍이 쿠키입니당. 너무너무 사랑스럽습니당.ㅎㅎ",
+      "likes": [
+        {
+          "id": "iamfine",
+          "name": "테스트",
+          "img": "/images/jiminkim/main_img2.jpeg"
+        },
+        {
+          "id": "test1",
+          "name": "테스트",
+          "img": "/images/jiminkim/main_img2.jpeg"
+        },
+        {
+          "id": "test3",
+          "name": "테스트",
+          "img": "/images/jiminkim/main_img2.jpeg"
+        }
+      ],
       "times": "16분 전",
       "isLike": false,
       "isBookmark": false,
@@ -35,8 +51,34 @@
       "id": 3,
       "writer": "jiminkim",
       "img": "https://picsum.photos/400",
-      "content": "위 사진은 픽션입니다.",
-      "likes": ["kimjimin", "test1", "test3"],
+      "content": "위 사진은 픽션입니다.\n훼이크 입니다\n\n동해물과 백두산이 마르고 닳도록\n하느님이 보우하사 우리 나라 만세",
+      "likes": [
+        {
+          "id": "goood",
+          "name": "테스트",
+          "img": "/images/jiminkim/main_img2.jpeg"
+        },
+        {
+          "id": "test1",
+          "name": "테스트",
+          "img": "/images/jiminkim/main_img2.jpeg"
+        },
+        {
+          "id": "test3",
+          "name": "테스트",
+          "img": "/images/jiminkim/main_img2.jpeg"
+        },
+        {
+          "id": "test3",
+          "name": "테스트",
+          "img": "/images/jiminkim/main_img2.jpeg"
+        },
+        {
+          "id": "test3",
+          "name": "테스트",
+          "img": "/images/jiminkim/main_img2.jpeg"
+        }
+      ],
       "times": "2일 전",
       "isLike": false,
       "isBookmark": false,

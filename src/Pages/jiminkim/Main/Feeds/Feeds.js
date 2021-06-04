@@ -1,12 +1,15 @@
 import React from 'react';
 import Feed from './Feed';
 import Comments from './Comments/Comments';
+import FeedLikeModal from './FeedLikeModal';
 
 export default class Feeds extends React.Component {
   constructor() {
     super();
     this.state = {
       feeds: [],
+      isOpenFeedLikeModal: false,
+      feedLikeList: [],
     };
   }
 
@@ -30,6 +33,19 @@ export default class Feeds extends React.Component {
     });
   };
 
+  openFeedLikeModal = () => {
+    this.setState({ isOpenFeedLikeModal: true });
+  };
+
+  closeFeedLikeModal = () => {
+    this.setState({ isOpenFeedLikeModal: false });
+  };
+
+  setFeedLikeListForModal = list => {
+    console.log(list);
+    this.setState({ feedLikeList: list });
+  };
+
   render() {
     const { feeds } = this.state;
 
@@ -42,9 +58,12 @@ export default class Feeds extends React.Component {
               feedWriter={feed.writer}
               feedPicture={feed.img}
               feedContent={feed.content}
+              feedLikePeeple={feed.likes}
               feedTime={feed.times}
               isLike={feed.isLike}
               onChangeFeedLike={this.onChangeFeedLike}
+              setFeedLikeListForModal={this.setFeedLikeListForModal}
+              openFeedLikeModal={this.openFeedLikeModal}
             />
             <Comments
               feedId={feed.id}
@@ -53,6 +72,12 @@ export default class Feeds extends React.Component {
             />
           </article>
         ))}
+        <FeedLikeModal
+          likeList={this.state.feedLikeList}
+          isOpen={this.state.isOpenFeedLikeModal}
+          closeModal={this.closeFeedLikeModal}
+        />
+        <button onClick={this.openFeedLikeModal}> 모달팝업</button>
       </div>
     );
   }

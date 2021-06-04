@@ -1,16 +1,38 @@
 import React from 'react';
 import Comments from './Comments/Comments';
+import Modal from '../../../../Components/Modal/Modal';
 
 class Feed extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isViewMoreContent: false,
+    };
+  }
+  setViewMoreContent = () => {
+    this.setState({
+      isViewMorecontent: !this.state.isViewMoreContent,
+    });
+  };
+
+  openFeedLikeModalBefore = () => {
+    console.log(this.props.feedLikePeeple);
+    this.props.setFeedLikeListForModal(this.props.feedLikePeeple);
+    this.props.openFeedLikeModal();
+  };
+
   render() {
     const {
       feedId,
       feedWriter,
       feedPicture,
       feedContent,
+      feedLikePeeple,
       isLike,
       onChangeFeedLike,
     } = this.props;
+
+    const isMoreContent = ~feedContent.indexOf('\n') ? true : false;
 
     return (
       <>
@@ -82,16 +104,47 @@ class Feed extends React.Component {
             </li>
           </ul>
         </div>
-        <div className="feeds-likes">
-          <div className="profile-box small">
-            <img src="/images/jiminkim/profile_img.jpeg" alt="프로필 사진" />
+        {feedLikePeeple.length > 0 ? (
+          <div className="feeds-likes">
+            <div className="profile-box small">
+              <img src="/images/jiminkim/profile_img.jpeg" alt="프로필 사진" />
+            </div>
+            <>
+              <span className="profile-box-desc bold">
+                {feedLikePeeple[0].id}
+              </span>{' '}
+              님 외&nbsp;
+              <span
+                class="bold like-count"
+                onClick={this.openFeedLikeModalBefore}
+              >
+                {feedLikePeeple.length}
+              </span>
+              명이 좋아합니다.
+            </>
           </div>
-          <span className="profile-box-desc bold">kimjimin</span> 님 외 10명이
-          좋아합니다.
-        </div>
+        ) : null}
         <div className="feeds-content">
-          <span className="bold">jemizem</span> {feedContent}
-          <span className="gray more">더 보기</span>
+          <span className="bold">{feedWriter}</span>
+          {isMoreContent ? (
+            this.state.isViewMorecontent ? (
+              feedContent.split('\n').map(line => (
+                <>
+                  {line}
+                  <br />
+                </>
+              ))
+            ) : (
+              <>
+                {feedContent.split('\n')[0]}...
+                <span className="gray more" onClick={this.setViewMoreContent}>
+                  더 보기
+                </span>
+              </>
+            )
+          ) : (
+            feedContent
+          )}
         </div>
       </>
     );

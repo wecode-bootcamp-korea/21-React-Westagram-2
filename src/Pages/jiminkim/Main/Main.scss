@@ -22,6 +22,14 @@
     .feeds-comment,
     .feeds-comment-list {
       padding: 5px 20px;
+      font-size: 14px;
+    }
+    .feeds-content span {
+      padding-right: 5px;
+      &.more {
+        padding-left: 5px;
+        cursor: pointer;
+      }
     }
 
     .feeds-picture {
@@ -44,6 +52,9 @@
     .feeds-likes {
       @include flexSet($justify: flex-start);
       height: 30px;
+      .like-count {
+        cursor: pointer;
+      }
     }
 
     .feeds-comment {
@@ -75,6 +86,7 @@
       width: 15px;
       background: 0 0;
       border: 0;
+      cursor: pointer;
 
       &:not(:last-of-type) {
         margin-right: 3px;
