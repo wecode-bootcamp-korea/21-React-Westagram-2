@@ -1,0 +1,319 @@
+.mainPage1 {
+  background-color: #fafafa;
+  .junkLine {
+    height: 22px;
+    margin: 0 10px;
+    border-left: 1px solid #262626;
+  }
+
+  main {
+    width: 960px;
+    margin: 0 auto;
+    padding-top: 94px;
+    padding-bottom: 40px;
+
+    .feeds {
+      width: 614px;
+      margin-right: 34px;
+      display: inline-block;
+
+      .feed {
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #dbdbdb;
+        margin-bottom: 60px;
+
+        .postAuthor {
+          height: 60px;
+          padding: 0 16px;
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+          span {
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  /* article */
+
+  .imgProfile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  .mainImage img {
+    width: 612px;
+  }
+
+  .mainId {
+    margin-left: 14px;
+  }
+
+  .mainRight {
+    border-radius: 50%;
+  }
+
+  /* contents */
+  .showingBox {
+    .contents img {
+      width: 612px;
+      height: 612px;
+    }
+
+    .activeContainer {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+    }
+    .commentContainer {
+      margin-top: 10px;
+      margin-left: 10px;
+      font-size: 14px;
+      ul {
+        li {
+          .commentBox {
+            display: flex;
+            font-size: 14px;
+            justify-content: space-between;
+            .commBtn {
+              .like,
+              .delComm {
+                background-color: white;
+              }
+            }
+
+            .commentVerEmpty {
+              -webkit-text-stroke: 1px #000;
+              -webkit-text-fill-color: transparent;
+            }
+
+            .commentVerFill {
+              color: red;
+            }
+
+            .commentPrint {
+              margin-right: 10px;
+
+              .userId {
+                font-weight: bold;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .comunicateBar {
+    display: flex;
+    width: 100%;
+  }
+
+  .comunicateBar img {
+    width: 22px;
+  }
+
+  .cBarLeft {
+    display: flex;
+    margin-left: 10px;
+    align-items: flex-start;
+
+    .like {
+      fill: #0095f6;
+    }
+  }
+
+  .cBarRight {
+    margin-left: 490px;
+  }
+
+  /* like tab */
+
+  .countingBox {
+    margin-left: 13px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.comunicateBar button {
+  padding: 2px;
+  border: none;
+  background-color: white;
+}
+
+/* comment input */
+.inputBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputComment {
+  border: none;
+  width: 520px;
+  height: 18px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.inputComment:focus {
+  outline: none;
+}
+
+.commentButton {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+  background-color: white;
+  color: blue;
+  &:disabled {
+    color: rgba(192, 223, 253, 1);
+  }
+}
+// 추천탭
+.recContainer {
+  width: 310px;
+  display: inline-block;
+  position: fixed;
+  top: 94px;
+
+  .recMyProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .myProfCon {
+      display: flex;
+      align-items: center;
+      img {
+        width: 54px;
+        border-radius: 50%;
+      }
+      .nameArea {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        margin-left: 10px;
+        .myId {
+          font-weight: 600;
+        }
+        .name {
+          opacity: 0.4;
+        }
+      }
+    }
+    .accountChange {
+      padding-top: 7px;
+      color: #0095f6;
+      font-weight: 600;
+      font-size: 12px;
+    }
+  }
+
+  .recommendList li {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+  }
+  .menuTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+
+    .subTitle {
+      font-size: 14px;
+      color: #8e8e8e;
+    }
+    .more {
+      font-size: 12px;
+      font-weight: 600;
+      color: #262626;
+    }
+  }
+  .recommendProfile {
+    display: flex;
+    font-size: 13px;
+    .profileText {
+      display: inline-block;
+      margin: 0 0 10px 8px;
+
+      .sub_span,
+      .user_id {
+        display: block;
+      }
+
+      .user_id {
+        font-size: 14px;
+        margin-bottom: 2px;
+        font-weight: 700;
+      }
+      .sub_span {
+        font-size: 12px;
+        opacity: 0.5;
+      }
+    }
+  }
+  .follow {
+    padding-top: 7px;
+    color: #0095f6;
+    font-weight: 600;
+    font-size: 12px;
+  }
+}
+
+.story {
+  display: flex;
+  flex-direction: row;
+  .gradation {
+    position: relative;
+    border-radius: 50%;
+    border: 2px solid;
+    width: 60px;
+    height: 60px;
+    .storyBox {
+      width: 57px;
+      height: 57px;
+      // border-radius: 50%;
+      // border: 2px solid red;
+      img {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+/* main */
+.empty {
+  font-size: 20px;
+  -webkit-text-stroke: 1px #000;
+  -webkit-text-fill-color: transparent;
+}
+
+.fill {
+  font-size: 20px;
+  color: red;
+}
+
+.like {
+  background-color: none;
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "img": "/images/yoonseonghwang/feed/feedCafe.jpg",
+    "likeCount": "100",
+    "likeBtnValid": true,
+    "contentsWrap": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!"
+      }
+    ]
+  },
+  {
+    "img": "/images/yoonseonghwang/feed/feedCafe.jpg",
+    "likeCount": "1020",
+    "likeBtnValid": false,
+    "contentsWrap": [
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "Hi there."
+      }
+    ]
+  },
+  {
+    "img": "/images/yoonseonghwang/feed/feedCafe.jpg",
+    "likeCount": "10310",
+    "likeBtnValid": true,
+    "contentsWrap": [
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "Hey."
+      }
+    ]
+  }
+]
