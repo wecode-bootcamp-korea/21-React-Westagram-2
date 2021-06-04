@@ -1,14 +1,17 @@
 import React from 'react';
 
 import './Modal.scss';
+import PostImg from './Sections/Left/Feeds/FeedSections/PostSection/PostImg';
 
 class Modal extends React.Component {
   render() {
-    const { modalEvent } = this.props;
+    const { modalEvent, feed } = this.props;
 
     return (
       <div className="Modal" onClick={modalEvent}>
-        <div onClick={e => e.stopPropagation()}></div>
+        <div className="ModalIn" onClick={e => e.stopPropagation()}>
+          <PostImg postImg={feed.postImg} />
+        </div>
       </div>
     );
   }

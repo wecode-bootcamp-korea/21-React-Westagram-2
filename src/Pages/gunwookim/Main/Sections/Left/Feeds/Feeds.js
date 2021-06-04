@@ -13,7 +13,9 @@ class Feeds extends React.Component {
       addCommentList,
       content,
       commentDelete,
+      commentTureOrFalse,
       onTest,
+      modalEvent,
     } = this.props;
 
     return (
@@ -25,7 +27,9 @@ class Feeds extends React.Component {
           handleInput={handleInput}
           addCommentList={addCommentList}
           commentDelete={commentDelete}
+          commentTureOrFalse={commentTureOrFalse}
           onTest={onTest}
+          modalEvent={modalEvent}
         />
       </div>
     );

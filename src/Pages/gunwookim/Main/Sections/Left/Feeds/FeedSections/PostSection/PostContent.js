@@ -5,7 +5,15 @@ import Comment from './Comment';
 
 class PostContent extends React.Component {
   render() {
-    const { postId, commentList, postcontent, commentDelete } = this.props;
+    const {
+      feed,
+      postId,
+      commentList,
+      postcontent,
+      commentDelete,
+      commentTureOrFalse,
+      modalEvent,
+    } = this.props;
 
     return (
       <div className="PostContent">
@@ -18,15 +26,19 @@ class PostContent extends React.Component {
         <div>
           <div>{postcontent}</div>
         </div>
+        <div onClick={() => modalEvent(feed)}>모달___</div>
         <ul>
-          {commentList.map(comment => (
-            <Comment
-              key={comment.id}
-              postId={postId}
-              comment={comment}
-              commentDelete={commentDelete}
-            />
-          ))}
+          {commentList
+            ? commentList.map(comment => (
+                <Comment
+                  key={comment.id}
+                  postId={postId}
+                  comment={comment}
+                  commentDelete={commentDelete}
+                  commentTureOrFalse={commentTureOrFalse}
+                />
+              ))
+            : ''}
         </ul>
       </div>
     );

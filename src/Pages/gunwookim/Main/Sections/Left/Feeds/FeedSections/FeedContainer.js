@@ -9,8 +9,15 @@ import '../Feed.scss';
 
 class FeedContainer extends React.Component {
   render() {
-    const { feed, handleInput, addCommentList, content, commentDelete } =
-      this.props;
+    const {
+      feed,
+      handleInput,
+      addCommentList,
+      content,
+      commentDelete,
+      commentTureOrFalse,
+      modalEvent,
+    } = this.props;
 
     return (
       <div className="FeedContainer">
@@ -20,7 +27,10 @@ class FeedContainer extends React.Component {
           postId={feed.postId}
           commentList={feed.commentList}
           commentDelete={commentDelete}
+          feed={feed}
           postcontent={feed.postcontent}
+          commentTureOrFalse={commentTureOrFalse}
+          modalEvent={modalEvent}
         />
         <PostComment
           postId={feed.postId}

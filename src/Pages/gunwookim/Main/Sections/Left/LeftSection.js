@@ -34,7 +34,6 @@ class LeftSection extends React.Component {
       if (feed.postId === postId) {
         const commentList = feed.commentList;
         const idx = commentList.findIndex(comment => comment.id === id);
-        // delete commentList[idx];
         commentList.splice(idx, 1);
       }
       return feed;
@@ -67,6 +66,7 @@ class LeftSection extends React.Component {
           {
             id: feed.commentList.length + 1,
             content: inputValue,
+            isLiked: false,
           },
         ];
       }
@@ -76,9 +76,23 @@ class LeftSection extends React.Component {
     this.setState({ feedList: list, content: contentList }, test);
   };
 
+  commentTureOrFalse = (postId, id) => {
+    const { feedList } = this.state;
+
+    const list = feedList.map(feed => {
+      if (feed.postId === postId) {
+        const commentList = feed.commentList;
+        const idx = commentList.findIndex(comment => comment.id === id);
+        commentList[idx].isLiked = !commentList[idx].isLiked;
+      }
+      return feed;
+    });
+
+    this.setState({ feedList: list });
+  };
+
   onTest = feed => {
     console.log(feed);
-
     this.setState({
       modal: feed,
     });
@@ -104,12 +118,14 @@ class LeftSection extends React.Component {
       });
   }
 
-  modalEvent = () => {
+  modalEvent = feed => {
     const { isModal } = this.state;
+    console.log(feed);
 
     this.setState(
       {
         isModal: !isModal,
+        modal: feed,
       },
       () => {
         document.body.style.overflow = isModal ? 'auto' : 'hidden';
@@ -133,8 +149,10 @@ class LeftSection extends React.Component {
             }
             handleInput={this.handleInput}
             addCommentList={this.addCommentList}
+            commentTureOrFalse={this.commentTureOrFalse}
             commentDelete={this.commentDelete}
             onTest={this.onTest}
+            modalEvent={this.modalEvent}
           />
         ))}
       </div>
