@@ -2,8 +2,7 @@ import React from 'react';
 
 export default class CommentsList extends React.Component {
   render() {
-    const { feedId, commentsList, deleteComment, handleCommentHeart } =
-      this.props;
+    const { commentsList, deleteComment, handleCommentHeart } = this.props;
 
     return (
       <>
@@ -16,15 +15,13 @@ export default class CommentsList extends React.Component {
                 <div className="button-list">
                   <button
                     className="comment-delete-button"
-                    id={comment.no}
-                    onClick={e => deleteComment(e)}
+                    onClick={() => deleteComment(comment.no)}
                   >
                     ✖️
                   </button>
                   <button
                     className="comment-heart-button"
-                    id={comment.no}
-                    onClick={e => handleCommentHeart(e)}
+                    onClick={() => handleCommentHeart(comment.no)}
                   >
                     {comment.isHeart ? '👍' : '👎'}
                   </button>

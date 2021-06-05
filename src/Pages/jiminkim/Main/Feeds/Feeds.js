@@ -14,9 +14,7 @@ export default class Feeds extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/jiminkim/feeds.json', {
-      method: 'GET',
-    })
+    fetch('/data/jiminkim/feeds.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -42,7 +40,6 @@ export default class Feeds extends React.Component {
   };
 
   setFeedLikeListForModal = list => {
-    console.log(list);
     this.setState({ feedLikeList: list });
   };
 
@@ -58,7 +55,7 @@ export default class Feeds extends React.Component {
               feedWriter={feed.writer}
               feedPicture={feed.img}
               feedContent={feed.content}
-              feedLikePeeple={feed.likes}
+              feedLikePeeple={feed.like_people}
               feedTime={feed.times}
               isLike={feed.isLike}
               onChangeFeedLike={this.onChangeFeedLike}
@@ -77,7 +74,6 @@ export default class Feeds extends React.Component {
           isOpen={this.state.isOpenFeedLikeModal}
           closeModal={this.closeFeedLikeModal}
         />
-        <button onClick={this.openFeedLikeModal}> 모달팝업</button>
       </div>
     );
   }

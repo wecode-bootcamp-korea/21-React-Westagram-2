@@ -3,14 +3,15 @@ import React from 'react';
 class ProfileBox extends React.Component {
   render() {
     const { profileList, className, boxName, isMore, isLive } = this.props;
+
     return (
       <div className={className}>
         <h3>{boxName}</h3>
-        {isMore ?? <div className="all_view gray">모두 보기</div>}
+        {isMore && <div className="all_view gray">모두 보기</div>}
         <ul>
-          {profileList?.map((profile, no) => (
-            <li key={no}>
-              <div className={`profile-box ${isLive && 'live-view'}`}>
+          {profileList?.map((profile, i) => (
+            <li key={i}>
+              <div className={`profile-box${isLive && ' live-view'}`}>
                 <img
                   src={profile.profileImg}
                   className="profile-box-img"

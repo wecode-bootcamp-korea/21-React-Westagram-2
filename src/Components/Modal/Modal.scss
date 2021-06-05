@@ -1,19 +1,14 @@
-.modal {
+.Modal {
   display: none;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 99;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99;
 
-  button {
-    outline: none;
-    cursor: pointer;
-    border: 0;
-  }
-  & > section {
+  section {
     width: 90%;
     max-width: 450px;
     margin: 0 auto;
@@ -22,18 +17,14 @@
     animation: modal-show 0.3s;
     overflow: hidden;
 
-    & > header {
-      all: initial;
+    header {
       position: relative;
-      padding: 16px 64px 16px 16px;
+      padding: 6px 64px 6px 16px;
       font-weight: 700;
-      margin: auto !important;
 
-      div.close {
+      .close {
         position: absolute;
-        top: 15px;
         right: 15px;
-        width: 30px;
         font-weight: 700;
         text-align: center;
         color: #999;
@@ -41,14 +32,16 @@
       }
     }
 
-    & > main {
+    main {
       padding: 16px;
       border-bottom: 1px solid #dee2e6;
       border-top: 1px solid #dee2e6;
     }
-    & > footer {
+
+    footer {
       padding: 12px 16px;
       text-align: right;
+
       button {
         padding: 6px 12px;
         color: #fff;
@@ -62,21 +55,12 @@
   &.openModal {
     display: flex;
     align-items: center;
-    animation: nodal-bg-show 0.3s;
+    animation: modal-bg-show 0.3s;
   }
+
   ul li {
     display: flex;
   }
-}
-.modalBg {
-  position: fiexed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300vh;
-  height: 300vh;
-  background-color: rgba(0, 0, 0, 0.56);
-  z-index: -1;
 }
 
 @keyframes modal-show {

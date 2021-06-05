@@ -8,7 +8,6 @@ class Comments extends React.Component {
     this.state = {
       commentsList: [],
       inputValue: '',
-      isInsert: false,
     };
   }
 
@@ -21,45 +20,49 @@ class Comments extends React.Component {
 
   // 댓글 Input 입력 Event
   setCommentInput = event => {
-    if (event.key === 'Enter') {
-      if (event.target.value.replace(/(?:\r\n|\r|\n)/g, '') === '') return;
+    const { key, target } = event;
+
+    // 댓글 입력이 없을 경우 return
+    if (target.value.trim() === '') return;
+
+    if (key === 'Enter') {
       this.appendComment();
       return;
     }
     this.setState({
-      inputValue: event.target.value,
-      isInsert: event.target.value !== '' ? true : false,
+      inputValue: target.value,
     });
   };
 
   // 댓글 추가 Event
   appendComment = () => {
     this.setState({
-      commentsList: this.state.commentsList.concat({
-        no: this.state.commentsList.length + 1,
-        nickname: 'nickname',
-        comment: this.state.inputValue,
-        isHeart: false,
-      }),
+      commentsList: [
+        ...this.state.commentsList,
+        {
+          no: this.state.commentsList.length + 1,
+          nickname: 'nickname',
+          comment: this.state.inputValue,
+        },
+      ],
       inputValue: '',
-      isInsert: false,
     });
   };
 
   // 댓글 삭제 Event
-  deleteComment = e => {
+  deleteComment = commentNo => {
     this.setState({
       commentsList: this.state.commentsList.filter(
-        comment => comment.no !== parseInt(e.target.id)
+        comment => comment.no !== commentNo
       ),
     });
   };
 
   // 댓글 좋아요
-  handleCommentHeart = e => {
+  handleCommentHeart = commentNo => {
     this.setState({
       commentsList: this.state.commentsList.map(comment => {
-        return comment.no !== parseInt(e.target.id)
+        return comment.no !== commentNo
           ? comment
           : { ...comment, isHeart: !comment.isHeart };
       }),
@@ -80,7 +83,6 @@ class Comments extends React.Component {
         </div>
         <CommentInput
           inputValue={this.state.inputValue}
-          isInsert={this.state.isInsert}
           setCommentInput={this.setCommentInput}
           appendComment={this.appendComment}
         />

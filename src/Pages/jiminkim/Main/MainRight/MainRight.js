@@ -12,9 +12,7 @@ export default class MainRight extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/jiminkim/profileData.json', {
-      method: 'GET',
-    })
+    fetch('/data/jiminkim/profileData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -55,9 +53,9 @@ export default class MainRight extends React.Component {
 
         <footer>
           <ul>
-            {INFO.map(item => {
-              return <li key={item.id}>{item.item}</li>;
-            })}
+            {INFO.map(item => (
+              <li key={item.id}>{item.item}</li>
+            ))}
           </ul>
           <span className="copylight">@ 2021 WESTAGRAM</span>
         </footer>

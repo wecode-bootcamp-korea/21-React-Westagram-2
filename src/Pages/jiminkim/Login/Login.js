@@ -10,7 +10,7 @@ class Login extends React.Component {
     this.state = {
       loginId: '',
       loginPw: '',
-      isPossibleLogin: false,
+      isVerify: false,
     };
   }
 
@@ -23,10 +23,10 @@ class Login extends React.Component {
       // setState가 비동기처리가 되기 때문에, state변경 후 아래 function 실행하도록 로직분리
       function () {
         const { loginId, loginPw } = this.state;
+        const isVerify = loginId.includes('@') && loginPw.length >= 5;
 
         this.setState({
-          isPossibleLogin:
-            loginId.includes('@') && loginPw.length >= 5 ? true : false,
+          isVerify,
         });
       }
     );
@@ -35,23 +35,23 @@ class Login extends React.Component {
   handleLogin = e => {
     //[2021.6.2]백엔드와 첫 통신
     //http://10.58.7.179:8000/users/signin
-    fetch('http://10.58.2.225:8000/join/signin', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: this.state.loginId,
-        password: this.state.loginPw,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
+    // fetch('http://10.58.2.225:8000/join/signin', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: this.state.loginId,
+    //     password: this.state.loginPw,
+    //   }),
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data);
+    //   });
     // if (!this.state.isPossibleLogin) return false;
-    // this.props.history.push('/jiminkim/main');
+    this.props.history.push('/jiminkim/main');
   };
 
   render() {
-    const { isPossibleLogin } = this.state;
+    const { isVerify } = this.state;
     return (
       <div className="login">
         <main className="login-box">
@@ -73,7 +73,8 @@ class Login extends React.Component {
           <button
             id="buttonLogin"
             onClick={this.handleLogin}
-            className={isPossibleLogin ? '' : 'inactive'}
+            className={!isVerify && 'inactive'}
+            disabled={!isVerify}
           >
             로그인
           </button>

@@ -6,7 +6,7 @@
       "writer": "jiminkim",
       "img": "/images/jiminkim/main_img1.jpeg",
       "content": "인스타 그램 클론 코딩",
-      "likes": [],
+      "like_people": [],
       "times": "방금 전",
       "isLike": true,
       "isBookmark": false,
@@ -25,7 +25,7 @@
       "writer": "jiminkim",
       "img": "/images/jiminkim/main_img2.jpeg",
       "content": "우리집 멍멍이 쿠키입니당. 너무너무 사랑스럽습니당.ㅎㅎ",
-      "likes": [
+      "like_people": [
         {
           "id": "iamfine",
           "name": "테스트",
@@ -52,7 +52,7 @@
       "writer": "jiminkim",
       "img": "https://picsum.photos/400",
       "content": "위 사진은 픽션입니다.\n훼이크 입니다\n\n동해물과 백두산이 마르고 닳도록\n하느님이 보우하사 우리 나라 만세",
-      "likes": [
+      "like_people": [
         {
           "id": "goood",
           "name": "테스트",
