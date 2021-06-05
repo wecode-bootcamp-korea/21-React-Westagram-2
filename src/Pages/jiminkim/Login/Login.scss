@@ -1,0 +1,55 @@
+@import '../../../Style/Common.scss';
+
+.login {
+  @include flexSet;
+  height: 100vh;
+  background-color: $lightgray;
+
+  .login-box {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: white;
+    border: $gray-border;
+  }
+
+  h1.title {
+    padding-bottom: 20px;
+    font-family: $logo-font;
+    text-align: center;
+  }
+
+  input {
+    margin: 5px;
+    padding: 15px 190px 15px 15px;
+    background-color: $lightgray;
+    border: $gray-border;
+    border-radius: 5px;
+  }
+
+  button {
+    margin: 15px 5px;
+    padding: 15px;
+    background-color: #0f76dc;
+    border: 1px solid #0566c7;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+
+    &.inactive {
+      opacity: 0.3;
+    }
+
+    &:not(.inactive):hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+
+  .find-passwd-str {
+    align-self: center;
+    padding-top: 100px;
+    color: $blue;
+    cursor: pointer;
+  }
+}

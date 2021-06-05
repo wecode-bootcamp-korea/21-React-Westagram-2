@@ -1,0 +1,36 @@
+{
+  "story_list": [
+    {
+      "profileImg": "https://picsum.photos/200",
+      "profileName": "_yum_s",
+      "profileDesc": "방금 전"
+    },
+    {
+      "profileImg": "https://picsum.photos/300",
+      "profileName": "coffee_holic",
+      "profileDesc": "16분 전"
+    },
+    {
+      "profileImg": "https://picsum.photos/250",
+      "profileName": "bg_yuyu",
+      "profileDesc": "3시간 전"
+    }
+  ],
+  "recommend": [
+    {
+      "profileImg": "https://picsum.photos/260",
+      "profileName": "i_wish_friend",
+      "profileDesc": "Westagram 신규가입"
+    },
+    {
+      "profileImg": "https://picsum.photos/280",
+      "profileName": "study_funfun",
+      "profileDesc": "_wecode님이 팔로우합니다."
+    },
+    {
+      "profileImg": "https://picsum.photos/270",
+      "profileName": "_mongmoung_good",
+      "profileDesc": "i_love_cookie님이 팔로우합니다."
+    }
+  ]
+}
